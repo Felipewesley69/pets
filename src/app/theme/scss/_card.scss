@@ -1,0 +1,24 @@
+$dark-color: #515151;
+
+.card {
+  width: 100%;
+  margin-top: 24px;
+  border-radius: 0.7rem;
+  box-shadow: 8px 8px 4px #dbdbdb;
+
+  &-title {
+    padding: 15px;
+    color: $dark-color;
+    border-bottom: 1px solid #CCC;
+    font-weight: bold;
+  }
+  
+  &-body {
+    padding: 15px;
+  }
+  
+  &-footer {
+    padding: 15px;
+    border-top: 1px solid #CCC;
+  }
+}

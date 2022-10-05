@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-title">
+    SOLICITAÇÕES
+  </div>
+  <div class="card-body">
+    <ul>
+      <li *ngFor="let item of lista">
+        <i class="{{ item.icon }}"></i>
+        <div class="text">
+          <div class="text-title">
+            {{ item.title }}
+          </div>
+          <div class="text-subtitle">
+            {{ item.subtitle }}
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="card-footer">
+    <a>Ver mais solicitações</a>
+  </div>
+</div>

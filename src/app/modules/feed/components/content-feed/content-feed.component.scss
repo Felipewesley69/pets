@@ -1,0 +1,110 @@
+.card {
+  &-title {
+    position: relative;
+    display: flex;
+    margin-bottom: 0;
+    border: none;
+
+    .options {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 1.2rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    img {
+      position: relative;
+      width: 33px;
+      height: 33px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    &-content-header {
+      display: flex;
+      flex-direction: column;
+
+      h4 {
+        font-size: 21px;
+        margin-bottom: 0 !important;
+      }
+
+      span {
+        font-size: 12px;
+        color: #5e5e5e;
+        font-weight: normal;
+      }
+    }
+  }
+
+  .text {
+    padding: 0 15px 15px 15px;
+    font-size: 0.8rem;
+  }
+
+  &-body {
+    position: relative;
+    padding: 0;
+
+    img {
+      width: 100%;
+      height: 249px;
+    }
+
+    &-icons {
+      position: absolute;
+      width: 206px;
+      height: 20px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      bottom: 0;
+      right: 0;
+      background-color: #fff;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+
+      i {
+        font-size: 0.8rem;
+        margin-right: 0.1rem;
+      }
+
+      span {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  &-footer {
+    background-color: #fff;
+    border: none;
+    border-bottom-left-radius: 0.7rem;
+    border-bottom-right-radius: 0.7rem;
+
+    &-icons {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      div {
+        display: flex;
+        align-items: center;
+
+        i {
+          font-size: 1rem;
+          margin-right: 0.5rem;
+          transition: 0.1s;
+
+          &:hover {
+            cursor: pointer;
+            color: #2d75b6;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.loading {
+  position: fixed;
+  top: .4px;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: 900;
+  background-color: #fff;
+
+  .bar {
+    background-color: #2d75b6;
+    height: 100%;
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    transform: translateX(-100%);
+  }
+
+  .animation {
+    animation: moveBar 1s .1s infinite;
+  }
+}
+
+@keyframes moveBar {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(200%);
+  }
+}

@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-top">
+    <div class="card-top-banner"></div>
+    <div class="card-top-img">
+      <img src="../../../../assets/img/perfil.jpg" alt="">
+    </div>
+    <div class="card-top-dados">
+      <span class="nome">Felipe Lemos</span>
+      <span class="cargo">Desenvolvedor</span>
+    </div>
+  </div>
+  <div class="card-content">
+      <hr>
+      <ul>
+        <li *ngFor="let item of lista">
+          <i class="{{ item.icon }}"></i>
+          <div class="text">
+            <div class="text-title">
+              {{ item.title }}
+            </div>
+            <div class="text-subtitle">
+              {{ item.subtitle }}
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+</div>

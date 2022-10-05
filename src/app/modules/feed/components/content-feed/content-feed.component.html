@@ -1,0 +1,47 @@
+<app-new-post></app-new-post>
+
+<div class="card" *ngFor="let item of lista">
+  <div class="card-title">
+    <i class="fas fa-ellipsis-v options"></i>
+    <img [src]="item.urlImage">
+    <div class="card-title-content-header">
+      <h4>{{ item.nameUser }}</h4>
+      <span>{{ item.time }}</span>
+    </div>
+  </div>
+  <div class="text">
+    {{ item.text }}
+  </div>
+  <div class="card-body">
+    <img class="img-fluid" [src]="item.urlImgPub">
+    <div class="card-body-icons">
+      <div>
+        <i class="far fa-thumbs-up"></i>
+        <span>{{item.likes}}</span>
+      </div>
+      <div>
+        <i class="far fa-comment-alt"></i>
+        <span>{{item.coments}}</span>
+      </div>
+      <div>
+        <i class="fas fa-share"></i>
+        <span>{{item.shared}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <div class="card-footer-icons">
+      <div>
+        <i class="far fa-thumbs-up"></i>
+        <span>Curtir</span>
+      </div>
+      <div>
+        <i class="far fa-comment-alt"></i>
+        <span>Comentar</span>
+      </div>
+      <div>
+        <i class="fas fa-share"></i>
+        <span>Compartilhar</span>
+      </div>
+  </div>
+</div>

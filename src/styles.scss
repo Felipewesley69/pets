@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@use './app/theme/scss/components.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #E5E5E5;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+ul > li {
+  list-style: none;
+}

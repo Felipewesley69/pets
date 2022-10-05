@@ -1,36 +1,36 @@
 <nav class="navbar">
   <div class="container-lg">
     <div class="navbar-container">
-        <div class="navbar-container-logo">
-          <div class="navbar-container-logo-text">
-            <a [routerLink]="['/feed']"><i class="fas fa-paw"></i></a>
-          </div>
-          <div class="navbar-container-logo-pesquisa">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Pesquisar...">
-              <button class="fa fa-search"></button>
-            </div>
+      <div class="navbar-container-logo">
+        <div class="navbar-container-logo-text">
+          <a [routerLink]="['/feed']"><i class="fas fa-paw"></i></a>
+        </div>
+        <div class="navbar-container-logo-pesquisa">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Pesquisar...">
+            <button class="fa fa-search"></button>
           </div>
         </div>
-        <div class="navbar-container-menu-user">
-          <ul>
-            <li routerLinkActive="router-link-active">
-              <a [routerLink]="['/feed']">Ínicio</a>
-            </li>
-            <li routerLinkActive="router-link-active">
-              <a [routerLink]="['/services']">Serviços</a>
-            </li>
-            <li routerLinkActive="router-link-active">
-              <a [routerLink]="['/requests']">Solicitações</a>
-            </li>
-          </ul>
+      </div>
+      <div class="navbar-container-menu-user">
+        <ul>
+          <li routerLinkActive="router-link-active">
+            <a [routerLink]="['/feed']">Ínicio</a>
+          </li>
+          <li routerLinkActive="router-link-active">
+            <a [routerLink]="['/services']">Serviços</a>
+          </li>
+          <li routerLinkActive="router-link-active">
+            <a [routerLink]="['/requests']">Solicitações</a>
+          </li>
+        </ul>
 
-          <div class="btn-group" dropdown>
-            <i id="button-animated" type="button" dropdownToggle class="far fa-bell"
-              aria-controls="dropdown-animated"></i>
-            <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
-              style="width: 252px; height: 410px; margin-right: 1rem;" role="menu" aria-labelledby="button-animated">
-              <!-- <li role="menuitem">
+        <div class="btn-group" dropdown>
+          <i id="button-animated" type="button" dropdownToggle class="far fa-bell"
+            aria-controls="dropdown-animated"></i>
+          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+            style="width: 252px; height: 410px; margin-right: 1rem;" role="menu" aria-labelledby="button-animated">
+            <!-- <li role="menuitem">
                 <a class="dropdown-item">Minha conta</a>
               </li>
               <li role="menuitem">
@@ -39,27 +39,27 @@
               <li role="menuitem">
                 <a class="dropdown-item">Sair</a>
               </li> -->
-            </ul>
-          </div>
-
-          <div class="btn-group" dropdown>
-            <i id="button-animated" type="button" dropdownToggle class="far fa-user"
-              aria-controls="dropdown-animated"></i>
-            <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right" style="width: 252px;"
-              role="menu" aria-labelledby="button-animated">
-              <li role="menuitem">
-                <a class="dropdown-item" [routerLink]="['/my-account']">Minha conta</a>
-              </li>
-              <li role="menuitem">
-                <a class="dropdown-item" [routerLink]="['/settings']">Configurações</a>
-              </li>
-              <li role="menuitem">
-                <a class="dropdown-item">Sair</a>
-              </li>
-            </ul>
-          </div>
-
+          </ul>
         </div>
+
+        <div class="btn-group" dropdown>
+          <i id="button-animated" type="button" dropdownToggle class="fas fa-cat btn-user-options"
+            aria-controls="dropdown-animated"></i>
+          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right" style="width: 252px;"
+            role="menu" aria-labelledby="button-animated">
+            <li role="menuitem">
+              <a class="dropdown-item" [routerLink]="['/my-account']">Minha conta</a>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item" [routerLink]="['/settings']">Configurações</a>
+            </li>
+            <li role="menuitem">
+              <a class="dropdown-item">Sair</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </div>
 </nav>

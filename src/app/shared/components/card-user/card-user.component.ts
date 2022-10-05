@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-card-usuario',
-  templateUrl: './card-usuario.component.html',
-  styleUrls: ['./card-usuario.component.scss']
+  selector: 'app-card-user',
+  templateUrl: './card-user.component.html',
+  styleUrls: ['./card-user.component.scss']
 })
-export class CardUsuarioComponent implements OnInit {
+export class CardUserComponent implements OnInit {
 
   lista = [
     {

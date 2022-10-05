@@ -51,7 +51,7 @@ $dark-color: #515151;
         }
       }
 
-      &-pesquisa {
+      &-search {
         input {
           border-radius: 25px;
           border: 1px solid $dark-color;
@@ -75,7 +75,7 @@ $dark-color: #515151;
       }
     }
 
-    &-menu-user {
+    &-nav-user {
       display: flex;
       align-items: center;
 
@@ -163,7 +163,7 @@ $dark-color: #515151;
 }
 
 @media (max-width: 650px) {
-  .navbar-container-logo-pesquisa {
+  .navbar-container-logo-search {
     display: none;
   }
 }

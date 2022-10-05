@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { LoadingGeralComponent } from './loading-geral.component';
+import { LoadingGeneralComponent } from './loading-general.component';
 
 describe('LoadingGeralComponent', () => {
-  let component: LoadingGeralComponent;
-  let fixture: ComponentFixture<LoadingGeralComponent>;
+  let component: LoadingGeneralComponent;
+  let fixture: ComponentFixture<LoadingGeneralComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoadingGeralComponent ]
+      declarations: [ LoadingGeneralComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoadingGeralComponent);
+    fixture = TestBed.createComponent(LoadingGeneralComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

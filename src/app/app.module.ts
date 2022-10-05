@@ -1,4 +1,4 @@
-import { LoadingGeralComponent } from './shared/components/loading-geral/loading-geral.component';
+import { LoadingGeneralComponent } from './shared/components/loading-general/loading-general.component';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,24 +10,28 @@ import { registerLocaleData, HashLocationStrategy, LocationStrategy } from '@ang
 import ptBr from '@angular/common/locales/pt';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
+import { HttpClientModule } from '@angular/common/http';
 
 registerLocaleData(ptBr);
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoadingGeralComponent
+    LoadingGeneralComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     LayoutModule,
     CoreModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'pt' },
+    {
+      provide: LOCALE_ID, useValue: 'pt'
+    },
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy

@@ -1,5 +1,3 @@
-<ng-container *ngIf="showLoader$ | async">
-  <app-loading-geral></app-loading-geral>
-</ng-container>
+<app-loading-general *ngIf="showLoader$ | async"></app-loading-general>
 <app-header></app-header>
 <router-outlet></router-outlet>

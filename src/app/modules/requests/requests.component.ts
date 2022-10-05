@@ -7,6 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RequestsComponent implements OnInit {
 
+  data: any = {
+    title: 'Opções',
+    links: [
+      {
+        icon: 'fas fa-user-plus',
+        label: 'Conexões',
+        route: 'requests/connections'
+      },
+      {
+        icon: 'far fa-calendar-minus',
+        label: 'Pessoas que sigo',
+        route: 'requests/people-i-follow'
+      }
+    ]
+  }
+
   constructor() { }
 
   ngOnInit() {

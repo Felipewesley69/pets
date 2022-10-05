@@ -20,7 +20,7 @@ const routes: Routes = [{
     },
     {
       path: 'requests',
-      loadChildren: () => import('./modules/requests/requests.routing.module').then(m => m.ResquestsRoutingModule)
+      loadChildren: () => import('./modules/requests/requests.module').then(m => m.RequestsModule)
     },
     { path: '**', component: NotFoundComponent }
   ]

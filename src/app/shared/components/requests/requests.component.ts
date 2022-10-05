@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-solicitacoes',
-  templateUrl: './solicitacoes.component.html',
-  styleUrls: ['./solicitacoes.component.scss']
+  selector: 'app-requests',
+  templateUrl: './requests.component.html',
+  styleUrls: ['./requests.component.scss']
 })
-export class SolicitacoesComponent implements OnInit {
+export class RequestsComponent implements OnInit {
 
   lista = [
     {

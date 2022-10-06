@@ -9,6 +9,10 @@ export class FeedComponent implements OnInit {
 
   constructor() { }
 
+  private teste: string = '';
+
+
+  
   ngOnInit() {
   }
 

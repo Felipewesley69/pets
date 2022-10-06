@@ -1,0 +1,150 @@
+{
+  "rulesDirectory": [
+    "node_modules/codelyzer"
+  ],
+  "rules": {
+    "arrow-return-shorthand": true,
+    "callable-types": true,
+    "class-name": true,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "curly": [
+      false,
+      [
+        "ignore-same-line"
+      ]
+    ],
+    "eofline": false,
+    "forin": false,
+    "import-blacklist": [
+      true,
+      "rxjs/Rx",
+      "primeng/primeng",
+      "rxjs/Observable",
+      "rxjs/add/operator/map",
+      "rxjs/add/operator/catch",
+      "rxjs/add/observable/from",
+      "rxjs/add/observable/of",
+      "rxjs/add/operator/toPromise",
+      "rxjs/add/operator/take",
+      "rxjs/add/operator/mergeMap",
+      "rxjs/add/observable/interval",
+      "rxjs/add/operator/switchMap",
+      "rxjs/add/operator/throw",
+      "rxjs/add/operator/concatMap",
+      "rxjs/operator/publish"
+    ],
+    "import-spacing": true,
+    "indent": [
+      true
+    ],
+    "interface-over-type-literal": true,
+    "label-position": true,
+    "max-line-length": [
+      true,
+      200
+    ],
+    "member-access": false,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-console": [
+      true,
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ],
+    "no-construct": false,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-empty": false,
+    "no-empty-interface": true,
+    "no-eval": true,
+    "no-inferrable-types": [
+      false,
+      "ignore-params"
+    ],
+    "no-misused-new": true,
+    "no-non-null-assertion": true,
+    "no-shadowed-variable": false,
+    "no-string-literal": false,
+    "no-string-throw": true,
+    "no-switch-case-fall-through": true,
+    "no-trailing-whitespace": false,
+    "no-unnecessary-initializer": true,
+    "no-unused-expression": true,
+    "no-use-before-declare": true,
+    "no-var-keyword": true,
+    "object-literal-sort-keys": false,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch"
+    ],
+    "prefer-const": true,
+    "quotemark": [
+      true,
+      "single"
+    ],
+    "radix": false,
+    "semicolon": [
+      "always"
+    ],
+    "triple-equals": [
+      false,
+      "allow-null-check"
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "typeof-compare": true,
+    "unified-signatures": true,
+    "variable-name": false,
+    "whitespace": [
+      true,
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
+    "directive-selector": [
+      false,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      false,
+      "element",
+      "app",
+      "kebab-case"
+    ],
+    "use-input-property-decorator": true,
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-input-rename": true,
+    "no-output-rename": true,
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "component-class-suffix": false,
+    "directive-class-suffix": true,
+    "no-access-missing-member": false,
+    "templates-use-public": false,
+    "invoke-injectable": false,
+    "no-consecutive-blank-lines": [
+      true,
+      1
+    ],
+    "no-unused-variable": true
+  }
+}

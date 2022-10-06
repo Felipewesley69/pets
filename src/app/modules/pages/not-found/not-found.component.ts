@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilService } from 'src/app/core/services/util.service';
+import { UtilService } from '@core/services/util.service';
 
 @Component({
   selector: 'app-not-found',

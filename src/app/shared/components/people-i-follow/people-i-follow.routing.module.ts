@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PeopleIFollowComponent } from 'src/app/shared/components/people-i-follow/people-i-follow.component';
+import { PeopleIFollowComponent } from '@shared/components/people-i-follow/people-i-follow.component';
 
 const routes: Routes = [
   {

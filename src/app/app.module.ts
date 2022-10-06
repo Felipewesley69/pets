@@ -11,6 +11,8 @@ import ptBr from '@angular/common/locales/pt';
 import { FormsModule } from '@angular/forms';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ResolveModule } from './shared/components/resolve/resolve.module';
+import { NotFoundModule } from './modules/pages/not-found/not-found.module';
 
 registerLocaleData(ptBr);
 
@@ -26,7 +28,9 @@ registerLocaleData(ptBr);
     HttpClientModule,
     AppRoutingModule,
     LayoutModule,
-    CoreModule
+    CoreModule,
+    ResolveModule,
+    NotFoundModule
   ],
   providers: [
     {

@@ -2,16 +2,7 @@
 
 <div class="card" *ngFor="let item of data">
   <div class="card-title">
-    <div *ngIf="owner(item.owner.id)" class="btn-group options" dropdown>
-      <i id="button-animated" type="button" dropdownToggle class="fas fa-ellipsis-v"
-        aria-controls="dropdown-animated"></i>
-      <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
-        style="width: 252px; height: 410px; margin-right: 1rem;" role="menu" aria-labelledby="button-animated">
-        <li role="menuitem">
-          <a class="dropdown-item" (click)="deletePost(item.id)">Excluir</a>
-        </li>
-      </ul>
-    </div>
+    <app-option-delete *ngIf="owner(item.owner.id)" (func)="deletePost(item.id)"></app-option-delete>
     <img [src]="item.owner.picture">
     <div class="card-title-content-header">
       <h4>{{ item.owner.firstName }} {{ item.owner.lastName }}</h4>
@@ -22,8 +13,8 @@
     {{ item.text }}
   </div>
   <div class="card-body">
-    <div class="container-image" *ngIf="item.image">
-      <img class="img-fluid" [src]="item.image">
+    <div class="container-image" (click)="openModal(item)" *ngIf="item.image">
+      <img class="img-fluid" [src]="item.image"> 
     </div>
   </div>
   <div class="card-footer">
@@ -38,3 +29,5 @@
       </div>
     </div>
   </div>
+
+  <app-modal-post #modal></app-modal-post>

@@ -35,6 +35,19 @@ ul > li {
   text-align: center;
 }
 
+.close-modal {
+  border: none;
+  background-color: transparent;
+  padding: 0 15px;
+}
+
+.img-tumblr {
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
 @keyframes fadein {
   from {
     opacity: 0.3;

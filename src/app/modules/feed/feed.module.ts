@@ -10,6 +10,9 @@ import { PostsService } from './providers/posts.service';
 import { ButtonsModule } from '@shared/components/buttons/buttons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
+import { ModalPostComponent } from './components/content-feed/modal-post/modal-post.component';
+import { CommentsService } from './providers/comments.service';
 
 @NgModule({
   imports: [
@@ -20,15 +23,19 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     CardUsuarioModule,
     RequestsModule,
     ButtonsModule,
-    BsDropdownModule
+    BsDropdownModule,
+    ModalModule
   ],
   declarations: [
     FeedComponent,
     ContentFeedComponent,
-    NewPostComponent
+    NewPostComponent,
+    ModalPostComponent
   ],
   providers: [
-    PostsService
+    PostsService,
+    BsModalService,
+    CommentsService
   ]
 })
 export class FeedModule { }

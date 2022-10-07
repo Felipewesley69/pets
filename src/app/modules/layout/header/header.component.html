@@ -3,14 +3,14 @@
     <div class="navbar-container">
       <div class="navbar-container-logo">
         <div class="navbar-container-logo-text">
-          <a [routerLink]="['/feed']"><i class="fas fa-paw"></i></a>
+          <a [routerLink]="['/feed']"><i class="fas fa-paw"></i> Pets</a>
         </div>
-        <div class="navbar-container-logo-search">
+        <!-- <div class="navbar-container-logo-search">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Pesquisar...">
             <button class="fa fa-search"></button>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="navbar-container-nav-user">
         <ul>
@@ -63,3 +63,5 @@
     </div>
   </div>
 </nav>
+
+<router-outlet></router-outlet>

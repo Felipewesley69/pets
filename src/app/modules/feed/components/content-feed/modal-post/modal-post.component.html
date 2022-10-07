@@ -1,0 +1,79 @@
+<div class="modal fade modal-no-close-overlay" bsModal #modal="bs-modal" tabindex="-1" role="dialog"
+  aria-labelledby="mySmallModalLabel" aria-hidden="true" [config]="{ backdrop: 'static' }">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="title-post">
+          <img class="img-tumblr" [src]="post?.owner.picture">
+          <div class="title-post-text">
+            <h4>{{ post?.owner.firstName }} {{ post?.owner.lastName }}</h4>
+            <span>{{ post?.publishDate }}</span>
+          </div>
+        </div>
+        <button type="button" class="close-modal" aria-label="Close" (click)="close()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="container-modal">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="container-image">
+                <img class="img-fluid img-tumblr" [src]="post?.image">
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="row">
+                <div class="input-group mb-3 input-comments">
+                  <input type="text" class="form-control" placeholder="Adicionar comentário..."
+                    aria-label="Adicionar comentário..." [formControl]="message" aria-describedby="button-addon2">
+                  <button class="btn btn-outline-primary" [disabled]="this.message.invalid" type="button" id="button-addon2" (click)="createComment()"><i
+                      class="fas fa-check"></i></button>
+                </div>
+              </div>
+              <ul class="list-group" *ngIf="comments?.data.length; else NoComments">
+                <li class="list-group-item" *ngFor="let item of comments?.data">
+
+                  <app-option-delete *ngIf="owner(item.owner.id)" (func)="deleteComment(item.id)"></app-option-delete>
+
+                  <!-- <div *ngIf="owner(item.owner.id)" class="btn-group options" dropdown>
+                    <i id="button-animated" type="button" dropdownToggle class="fas fa-ellipsis-v"
+                      aria-controls="dropdown-animated"></i>
+                    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+                      style="width: 252px; height: 410px; margin-right: 1rem;" role="menu"
+                      aria-labelledby="button-animated">
+                      <li role="menuitem">
+                        <a class="dropdown-item" (click)="deleteComment(item.id)">Excluir</a>
+                      </li>
+                    </ul>
+                  </div> -->
+
+
+
+                  <div>
+                    <img class="img-fluid img-tumblr" [src]="item?.owner.picture">
+                    <strong>{{ item?.owner.firstName }} {{ item?.owner.lastName }}</strong>&nbsp;
+                    {{ item.message }}
+                  </div>
+                  <div class="p">
+                    {{ item?.publishDate }}
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+          <div class="pull-right">
+            <app-default-button class="mr-2" label="Salvar"></app-default-button>
+            <app-secondary-button label="Cancelar" (func)="close()"></app-secondary-button>
+          </div>
+        </div> -->
+    </div>
+  </div>
+</div>
+
+<ng-template #NoComments>
+  <p class="text-center">Sem Comentários.</p>
+</ng-template>

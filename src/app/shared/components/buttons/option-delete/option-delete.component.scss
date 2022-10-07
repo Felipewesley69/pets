@@ -1,0 +1,10 @@
+.options {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  .dropdown-menu-right {
+    height: auto !important;
+    margin-right: 0 !important;
+  }
+}

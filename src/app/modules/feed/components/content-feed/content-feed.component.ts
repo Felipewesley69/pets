@@ -1,7 +1,8 @@
 import { Post } from './../../providers/posts.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { UserServiceService } from '@shared/services/userService.service';
 import { PostsService } from '../../providers/posts.service';
+import { ModalPostComponent } from './modal-post/modal-post.component';
 
 @Component({
   selector: 'app-content-feed',
@@ -11,6 +12,8 @@ import { PostsService } from '../../providers/posts.service';
 export class ContentFeedComponent implements OnInit {
 
   @Input() data: Post[];
+  @ViewChild('modal') m: ModalPostComponent;
+
   userId = this.userService.userId;
 
   constructor(
@@ -19,6 +22,10 @@ export class ContentFeedComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  openModal(post: Post): void {
+    this.m.open(post);
   }
 
   owner = (id: string): boolean => id == this.userId;

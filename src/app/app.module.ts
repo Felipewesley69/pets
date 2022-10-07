@@ -13,6 +13,7 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ResolveModule } from './shared/components/resolve/resolve.module';
 import { NotFoundModule } from './modules/pages/not-found/not-found.module';
+import { LoginModule } from './modules/pages/login/login.module';
 
 registerLocaleData(ptBr);
 
@@ -30,7 +31,8 @@ registerLocaleData(ptBr);
     LayoutModule,
     CoreModule,
     ResolveModule,
-    NotFoundModule
+    NotFoundModule,
+    LoginModule
   ],
   providers: [
     {

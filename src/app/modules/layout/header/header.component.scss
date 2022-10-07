@@ -43,12 +43,13 @@ $dark-color: #515151;
       @extend %flex-center;
 
       &-text {
-        margin-right: 0.5rem;
+        font-size: 2.1rem;
 
         i {
           color: #426c95;
           font-size: 34px;
         }
+
       }
 
       &-search {

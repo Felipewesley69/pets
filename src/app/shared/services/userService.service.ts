@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class UserServiceService {
 
-  private loggedUserId = '60d0fe4f5311236168a109cd';
+  private loggedUserId;
 
   constructor(private http: HttpClient) { }
 
@@ -19,6 +19,14 @@ export class UserServiceService {
 
   get userId(): string {
     return this.loggedUserId;
+  }
+
+  setId(value) {
+    this.loggedUserId = value;
+  }
+
+  updateUserId() {
+    this.loggedUserId = window.sessionStorage.getItem('token');
   }
 
   findById(id: string): Observable<User> {

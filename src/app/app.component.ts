@@ -1,3 +1,4 @@
+import { UserServiceService } from './shared/services/userService.service';
 import { Component } from '@angular/core';
 import { NavigationCancel, NavigationEnd, NavigationError, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -16,9 +17,11 @@ export class AppComponent {
   showLoader$: Observable<boolean>;
 
   constructor(
+    private userService: UserServiceService,
     private loadingService: LoadingService,
     router: Router
   ) {
+    this.userService.updateUserId();
     this.showLoader$ = this.loadingService.showLoading$;
 
     router.events.subscribe(event => {

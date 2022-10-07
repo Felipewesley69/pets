@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
                 (click)="funcao()"
                 class="button"
                 [disabled]="disabled"
-                type="button">
+                [type]="type">
                 <i [class]="icon"></i>
                 {{ label }}
               </button>
@@ -20,6 +20,7 @@ export class DefaultButtonComponent {
   @Input() label: string = '';
   @Input() disabled: boolean = false;
   @Input() icon: string = '';
+  @Input() type: string = 'button';
 
   funcao() {
     this.func.emit();

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '@shared/models/user.model';
+import { UserServiceService } from '@shared/services/userService.service';
+import { PostsService } from '../../providers/posts.service';
 
 @Component({
   selector: 'app-new-post',
@@ -7,22 +11,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewPostComponent implements OnInit {
 
-  user =
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/perfil.jpg',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    }
+  user: User;
+  form: FormGroup;
+  file: File;
 
-  constructor() { }
+  constructor(
+    private fb: FormBuilder,
+    private postService: PostsService,
+    private userServiceService: UserServiceService
+  ) {
+    this.form = this.fb.group({
+      text: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(50)]],
+      image: [null],
+      likes: [0],
+      tags: [null],
+      owner: [null, Validators.required]
+    });
+  }
 
   ngOnInit() {
+    this.loadById();
+    this.form.get('owner').setValue(this.userServiceService.userId);
+  }
+
+  loadById(): void {
+    this.userServiceService.findById(this.userServiceService.userId).subscribe(res => this.user = res);
+  }
+
+  newPost(): void {
+    this.postService.creat(this.formValue).subscribe(() => {
+      this.postService.updatePosts.emit();
+      this.form.reset();
+    });
+
+    console.log(this.formValue);
+  }
+
+  changeFile(event): void {
+    this.file = event.target.files[0];
+  }
+
+  get formValue() {
+    return {
+      ...this.form.getRawValue(),
+      // image: this.file
+    };
   }
 
 }

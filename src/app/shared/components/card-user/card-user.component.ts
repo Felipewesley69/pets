@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '@shared/models/user.model';
+import { UserServiceService } from '@shared/services/userService.service';
 
 @Component({
   selector: 'app-card-user',
@@ -7,27 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardUserComponent implements OnInit {
 
-  lista = [
-    {
-      icon: 'fas fa-share-alt',
-      title: 'Conexões',
-      subtitle: '1586'
-    },
-    {
-      icon: 'far fa-chart-bar',
-      title: 'Estartíticas',
-      subtitle: 'Lorem ipsum dollor'
-    },
-    {
-      icon: 'far fa-bookmark',
-      title: 'Ítens salvos',
-      subtitle: 'Lorem ipsum dollor'
-    }
-  ]
+  user: User;
 
-  constructor() { }
+  list: any;
+
+  constructor(private userServiceService: UserServiceService) { }
 
   ngOnInit() {
+    this.loadById();
+  }
+
+  loadById(): void {
+    this.userServiceService.findById(this.userServiceService.userId).subscribe(res => {
+      this.user = res;
+      this.setList();
+    });
+  }
+
+  setList(): void {
+    this.list =  [
+      {
+        icon: 'fas fa-map-marker-alt',
+        title: 'Endereço',
+        subtitle: `${this.user?.location.city}, ${this.user?.location.state} - ${this.user?.location.country}` 
+      },
+      {
+        icon: 'fas fa-phone',
+        title: 'Telefone',
+        subtitle: this.user.phone
+      },
+      {
+        icon: 'fas fa-venus-mars',
+        title: 'Gênero',
+        subtitle: this.user.gender
+      }
+    ]
   }
 
 }

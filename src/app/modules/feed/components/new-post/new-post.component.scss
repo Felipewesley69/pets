@@ -32,6 +32,7 @@
 
   &-body {
     display: flex;
+    justify-content: space-between;
 
     input[type="file"] {
       display: none;
@@ -45,6 +46,18 @@
       border: 1px solid #456585;
       border-radius: 4px;
       font-size: .8rem;
+      display: flex;
+      align-items: center;
+      height: 22px;
+
+      i {
+        margin-right: .5rem;
+      }
+
+      &:hover {
+        background-color: #456585;
+        color: #FFF;
+      }
 
       &:not(:last-child) {
         margin-right: .5rem;

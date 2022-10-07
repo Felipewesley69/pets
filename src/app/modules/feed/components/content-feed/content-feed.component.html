@@ -1,47 +1,40 @@
 <app-new-post></app-new-post>
 
-<div class="card" *ngFor="let item of lista">
+<div class="card" *ngFor="let item of data">
   <div class="card-title">
-    <i class="fas fa-ellipsis-v options"></i>
-    <img [src]="item.urlImage">
+    <div *ngIf="owner(item.owner.id)" class="btn-group options" dropdown>
+      <i id="button-animated" type="button" dropdownToggle class="fas fa-ellipsis-v"
+        aria-controls="dropdown-animated"></i>
+      <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+        style="width: 252px; height: 410px; margin-right: 1rem;" role="menu" aria-labelledby="button-animated">
+        <li role="menuitem">
+          <a class="dropdown-item" (click)="deletePost(item.id)">Excluir</a>
+        </li>
+      </ul>
+    </div>
+    <img [src]="item.owner.picture">
     <div class="card-title-content-header">
-      <h4>{{ item.nameUser }}</h4>
-      <span>{{ item.time }}</span>
+      <h4>{{ item.owner.firstName }} {{ item.owner.lastName }}</h4>
+      <span>{{ item.publishDate }}</span>
     </div>
   </div>
   <div class="text">
     {{ item.text }}
   </div>
   <div class="card-body">
-    <img class="img-fluid" [src]="item.urlImgPub">
-    <div class="card-body-icons">
-      <div>
-        <i class="far fa-thumbs-up"></i>
-        <span>{{item.likes}}</span>
-      </div>
-      <div>
-        <i class="far fa-comment-alt"></i>
-        <span>{{item.coments}}</span>
-      </div>
-      <div>
-        <i class="fas fa-share"></i>
-        <span>{{item.shared}}</span>
-      </div>
+    <div class="container-image" *ngIf="item.image">
+      <img class="img-fluid" [src]="item.image">
     </div>
   </div>
   <div class="card-footer">
     <div class="card-footer-icons">
       <div>
-        <i class="far fa-thumbs-up"></i>
+        <i class="far fa-thumbs-up like"></i>
         <span>Curtir</span>
       </div>
       <div>
-        <i class="far fa-comment-alt"></i>
-        <span>Comentar</span>
+        <i class="far fa-thumbs-up like-count"></i>
+        <span>{{item.likes}}</span>
       </div>
-      <div>
-        <i class="fas fa-share"></i>
-        <span>Compartilhar</span>
-      </div>
+    </div>
   </div>
-</div>

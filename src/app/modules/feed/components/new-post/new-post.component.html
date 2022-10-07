@@ -1,28 +1,38 @@
-<div class="card">
-  <div class="card-title">
-    <img [src]="user.urlImage">
-    <textarea rows="1" placeholder="Criar nova publicação..."></textarea>
+<form [formGroup]="form" (ngSubmit)="newPost()">
+  <div class="card">
+    <div class="card-title">
+      <img [src]="user?.picture" alt="Picture">
+      <textarea rows="1" placeholder="Criar nova publicação..." formControlName="text" minlength="6" maxlength="50"></textarea>
+    </div>
+    <div class="card-body">
+      <!-- <label for="arquivo">
+        <i class="fas fa-video"></i>
+        Video
+        <input type="file" name="arquivo" id="arquivo">
+      </label>
+      <label for="arquivo">
+        <i class="far fa-calendar"></i>
+        Evento
+        <input type="file" name="arquivo" id="arquivo">
+      </label>
+      <label for="arquivo">
+        <i class="fas fa-paperclip"></i>
+        Anexar
+        <input type="file" name="arquivo" id="arquivo">
+      </label> -->
+      <label for="arquivo">
+        <i class="far fa-image"></i>
+        Imagem
+        <input
+          type="file"
+          name="arquivo"
+          id="arquivo"
+          formControlName="image"
+          accept="image/*"
+          (change)="changeFile($event)"
+          >
+      </label>
+      <app-default-button *ngIf="form.valid" class="fade-in" label="Publicar" type="submit"></app-default-button>
+    </div>
   </div>
-  <div class="card-body">
-    <label for="arquivo">
-      <i class="fas fa-video"></i>
-      Video
-      <input type="file" name="arquivo" id="arquivo">
-    </label>
-    <label for="arquivo">
-      <i class="far fa-calendar"></i>
-      Evento
-      <input type="file" name="arquivo" id="arquivo">
-    </label>
-    <label for="arquivo">
-      <i class="far fa-image"></i>
-      Imagem
-      <input type="file" name="arquivo" id="arquivo">
-    </label>
-    <label for="arquivo">
-      <i class="fas fa-paperclip"></i>
-      Anexar
-      <input type="file" name="arquivo" id="arquivo">
-    </label>
-  </div>
-</div>
+</form>

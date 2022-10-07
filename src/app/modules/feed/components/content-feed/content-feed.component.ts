@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Post } from './../../providers/posts.model';
+import { Component, Input, OnInit } from '@angular/core';
+import { UserServiceService } from '@shared/services/userService.service';
+import { PostsService } from '../../providers/posts.service';
 
 @Component({
   selector: 'app-content-feed',
@@ -7,100 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentFeedComponent implements OnInit {
 
-  lista = [
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/avatar-perfil.png',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    },
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/avatar-perfil.png',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub2.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    },
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/avatar-perfil.png',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    },
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/avatar-perfil.png',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub2.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    },
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/avatar-perfil.png',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    },
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/avatar-perfil.png',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub2.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    },
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/avatar-perfil.png',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    },
-    {
-      id: 1,
-      urlImage: './../../../../../assets/img/avatar-perfil.png',
-      nameUser: 'Felipe Lemos',
-      time: '10h',
-      text: 'Expressão Lorem ipsum em design gráfico e editoração é um texto padrão em latim utilizado na produção gráfica para preencher os espaços de texto em publicações.',
-      urlImgPub: './../../../../../assets/img/pub.jpg',
-      likes: 145,
-      coments: 145000,
-      shared: 125000
-    }
-  ]
+  @Input() data: Post[];
+  userId = this.userService.userId;
 
-  constructor() { }
+  constructor(
+    private postsService: PostsService,
+    private userService: UserServiceService
+  ) { }
 
   ngOnInit() {
+  }
+
+  owner = (id: string): boolean => id == this.userId;
+
+  deletePost(id: string): void {
+    this.postsService.delete(id).subscribe(() => {
+      this.postsService.updatePosts.emit();
+    });
   }
 
 }

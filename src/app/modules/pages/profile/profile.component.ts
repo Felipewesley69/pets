@@ -28,6 +28,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.routerActivated.params.subscribe(res => {
       if (Boolean(res.userId)) {
+        this.page = 0;
         this.postsService.loadByIdUser(res.userId, { limit: this.limit, page: this.page })
           .subscribe(res => {
             this.posts = [];

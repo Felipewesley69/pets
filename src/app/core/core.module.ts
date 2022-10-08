@@ -5,6 +5,7 @@ import { LoadingInterceptor } from './interceptors/loading-interceptor';
 import { LoadingService } from './services/loading.service';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { RequestInterceptor } from './interceptors/requests.interceptor';
+import { AuthorizedOnlyService } from './guards/authorized-only.service';
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import { RequestInterceptor } from './interceptors/requests.interceptor';
             useClass: RequestInterceptor,
             multi: true
         },
-        LoadingService
+        LoadingService,
+        AuthorizedOnlyService
     ],
     declarations: [
     ],

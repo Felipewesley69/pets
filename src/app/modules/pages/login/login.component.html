@@ -1,17 +1,22 @@
-<div class="container-md">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-12">
-      <form [formGroup]="form">
+    <div class="col-md-6 col-image">
+    </div>
+    <div class="col-md-6 col-form">
+      <h3 class="mb-5">Bem-vindo ao Pets!</h3>
+      <form [formGroup]="form" autocomplete="off" (ngSubmit)="login()">
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-          <input type="text" class="form-control" formControlName="userName" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+          <input type="text" autocomplete=“off” class="form-control" formControlName="userName" placeholder="Username"
+            aria-label="Username" aria-describedby="basic-addon1">
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
-          <input type="password" class="form-control" formControlName="password" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+          <input type="password" autocomplete=“off” class="form-control" formControlName="password"
+            placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
         </div>
         <p class="text-center">
-          <app-default-button label="Entrar" [disabled]="form.invalid" (func)="login()"></app-default-button>
+          <app-default-button label="Entrar" type="submit" [disabled]="form.invalid"></app-default-button>
         </p>
       </form>
     </div>

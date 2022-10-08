@@ -1,0 +1,48 @@
+.container-fluid {
+  height: 100vh;
+  display: flex;
+  padding: 0 !important;
+
+  .row {
+    display: flex;
+    margin: 0 !important;
+    width: 100%;
+
+    .col-image {
+      width: 70%;
+      padding: 0 200px;
+      background-image: url("../../../../assets/img/background.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      background-color: #2d75b6;
+    }
+    
+    .col-form {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      form {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .col-image {
+    display: none;
+  }
+
+  .col-form {
+    height: 100vh;
+    width: 100% !important;
+
+    form {
+      width: 85% !important;
+    }
+  }
+}

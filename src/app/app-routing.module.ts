@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './modules/pages/login/login.component';
 import { NotFoundComponent } from './modules/pages/not-found/not-found.component';
+import { AuthorizedOnlyService } from '@core/guards/authorized-only.service';
 
 const routes: Routes = [
   {
@@ -19,15 +20,18 @@ const routes: Routes = [
       },
       {
         path: 'feed',
-        loadChildren: () => import('./modules/feed/feed.module').then(m => m.FeedModule)
+        loadChildren: () => import('./modules/feed/feed.module').then(m => m.FeedModule),
+        canActivate: [AuthorizedOnlyService]
       },
       {
         path: 'services',
-        loadChildren: () => import('./modules/services/services.module').then(m => m.ServicesModule)
+        loadChildren: () => import('./modules/services/services.module').then(m => m.ServicesModule),
+        canActivate: [AuthorizedOnlyService]
       },
       {
         path: 'requests',
-        loadChildren: () => import('./modules/requests/requests.module').then(m => m.RequestsModule)
+        loadChildren: () => import('./modules/requests/requests.module').then(m => m.RequestsModule),
+        canActivate: [AuthorizedOnlyService]
       },
       {
         path: '**', component: NotFoundComponent

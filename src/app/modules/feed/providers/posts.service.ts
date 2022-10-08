@@ -21,6 +21,15 @@ export class PostsService {
     return this.http.get<Posts>(`${this.url}/post`, { params });
   }
 
+  loadById(id: string): Observable<Post> {
+    return this.http.get<Post>(`${this.url}/post/${id}`);
+  }
+
+  loadByIdUser(id: string, filter: any): Observable<Posts> {
+    const params = new AddHttpParams(filter).createParams();
+    return this.http.get<Posts>(`${this.url}/user/${id}/post`, { params });
+  }
+
   creat(data: Post): Observable<Post> {
     return this.http.post<Post>(`${this.url}/post/create`, { ...data })
   }

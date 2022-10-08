@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UtilService } from '@core/services/util.service';
 import { User } from '@shared/models/user.model';
 import { UserServiceService } from '@shared/services/userService.service';
 import { PostsService } from '../../providers/posts.service';
@@ -18,7 +19,8 @@ export class NewPostComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private postService: PostsService,
-    private userServiceService: UserServiceService
+    private userServiceService: UserServiceService,
+    private utilService: UtilService
   ) {
     this.form = this.fb.group({
       text: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(50)]],
@@ -30,12 +32,12 @@ export class NewPostComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadById();
+    this.loadUser();
     this.form.get('owner').setValue(this.userServiceService.userId);
   }
 
-  loadById(): void {
-    this.userServiceService.findById(this.userServiceService.userId).subscribe(res => this.user = res);
+  loadUser(): void {
+    this.user = this.utilService.getUserSessionStorage();
   }
 
   newPost(): void {

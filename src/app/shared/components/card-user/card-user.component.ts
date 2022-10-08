@@ -1,6 +1,9 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { UtilService } from '@core/services/util.service';
 import { User } from '@shared/models/user.model';
 import { UserServiceService } from '@shared/services/userService.service';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-card-user',
@@ -10,38 +13,47 @@ import { UserServiceService } from '@shared/services/userService.service';
 export class CardUserComponent implements OnInit {
 
   user: User;
-
   list: any;
 
-  constructor(private userServiceService: UserServiceService) { }
+  constructor(
+    private utilService: UtilService,
+    private router: ActivatedRoute,
+    private userService: UserServiceService
+  ) { }
 
   ngOnInit() {
-    this.loadById();
-  }
-
-  loadById(): void {
-    this.userServiceService.findById(this.userServiceService.userId).subscribe(res => {
-      this.user = res;
-      this.setList();
+    this.router.params.subscribe(res => {
+      if (Boolean(res.userId)) {
+        this.userService.findById(res.userId)
+          .pipe(finalize(() => this.setList()))
+          .subscribe(res => this.user = res);
+      } else {
+        this.loadUser();
+      }
     });
   }
 
+  loadUser(): void {
+    this.user = this.utilService.getUserSessionStorage();
+    this.setList();
+  }
+
   setList(): void {
-    this.list =  [
+    this.list = [
       {
         icon: 'fas fa-map-marker-alt',
         title: 'Endereço',
-        subtitle: `${this.user?.location.city}, ${this.user?.location.state} - ${this.user?.location.country}` 
+        subtitle: `${this.user?.location?.city}, ${this.user?.location?.state}`
       },
       {
         icon: 'fas fa-phone',
         title: 'Telefone',
-        subtitle: this.user.phone
+        subtitle: this.user?.phone
       },
       {
         icon: 'fas fa-venus-mars',
         title: 'Gênero',
-        subtitle: this.user.gender
+        subtitle: this.user?.gender
       }
     ]
   }

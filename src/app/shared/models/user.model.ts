@@ -1,3 +1,7 @@
+export interface Users {
+  data: User[];
+}
+
 export interface User {
   id: string;
   title: string;

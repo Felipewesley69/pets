@@ -1,10 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { UtilService } from '@core/services/util.service';
 import { UserServiceService } from '@shared/services/userService.service';
 import { Comments } from 'app/modules/feed/providers/comments.model';
 import { CommentsService } from 'app/modules/feed/providers/comments.service';
 import { Post } from 'app/modules/feed/providers/posts.model';
+import { PostsService } from 'app/modules/feed/providers/posts.service';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-modal-post',
@@ -17,13 +20,16 @@ export class ModalPostComponent implements OnInit {
 
   message = new FormControl(null);
 
+  urlPicture: string;
   post: Post;
-  comments: Comments;
   page: number = 0;
+  comments: Comments;
 
   constructor(
     private userService: UserServiceService,
-    private commentsService: CommentsService
+    private postService: PostsService,
+    private commentsService: CommentsService,
+    private utilService: UtilService
   ) { }
 
   ngOnInit(): void {
@@ -31,9 +37,15 @@ export class ModalPostComponent implements OnInit {
   }
 
   open(post: Post) {
-    this.post = post;
-    this.loadCommentsByPost();
+    this.urlPicture = post.owner.picture;
+    this.loadPostById(post.id);
     this.modal.show();
+  }
+
+  loadPostById(id): void {
+    this.postService.loadById(id)
+      .pipe(finalize(() => this.loadCommentsByPost()))
+      .subscribe(res => this.post = res);
   }
 
   loadCommentsByPost(): void {
@@ -42,9 +54,9 @@ export class ModalPostComponent implements OnInit {
 
   createComment(): void {
     const form = {
+      post: this.post.id,
       message: this.message.value,
-      owner: this.userService.userId,
-      post: this.post.id
+      owner: this.userService.userId
     }
 
     this.commentsService.create(form).subscribe(() => {
@@ -55,13 +67,13 @@ export class ModalPostComponent implements OnInit {
 
   deleteComment(id: string): void {
     this.commentsService.delete(id).subscribe(() => this.loadCommentsByPost());
-
   }
 
-  owner = (id: string): boolean => id == this.userService.userId;
+  owner = (id: string): boolean => this.utilService.owner(id, this.userService.userId);
 
   close() {
     this.modal.hide();
+    this.post = null;
     this.comments = null;
     this.message.reset();
   }

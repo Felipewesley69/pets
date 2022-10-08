@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '@shared/models/user.model';
+import { User, Users } from '@shared/models/user.model';
 import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
@@ -27,6 +27,10 @@ export class UserServiceService {
 
   updateUserId() {
     this.loggedUserId = window.sessionStorage.getItem('token');
+  }
+
+  load(): Observable<Users> {
+    return this.http.get<Users>(`${this.url}/user`);
   }
 
   findById(id: string): Observable<User> {

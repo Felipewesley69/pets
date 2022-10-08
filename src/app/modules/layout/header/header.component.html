@@ -30,10 +30,7 @@
           <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right" style="width: 252px;"
             role="menu" aria-labelledby="button-animated">
             <li role="menuitem">
-              <a class="dropdown-item" [routerLink]="['/my-account']">Minha conta</a>
-            </li>
-            <li role="menuitem">
-              <a class="dropdown-item" [routerLink]="['/settings']">Configurações</a>
+              <a class="dropdown-item" [routerLink]="'profile/' + userService.userId">Perfil</a>
             </li>
             <li role="menuitem">
               <a class="dropdown-item" (click)="loguot()">Sair</a>

@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="title-post">
-          <img class="img-tumblr" [src]="post?.owner.picture">
+          <img class="img-tumblr" [src]="urlPicture">
           <div class="title-post-text">
             <h4>{{ post?.owner.firstName }} {{ post?.owner.lastName }}</h4>
             <span>{{ post?.publishDate }}</span>
@@ -21,6 +21,11 @@
               <div class="container-image">
                 <img class="img-fluid img-tumblr" [src]="post?.image">
               </div>
+              <div class="row">
+                <div class="col-md-12 pt-3 pb-2">
+                  {{ post?.text }}
+                </div>
+              </div>
             </div>
             <div class="col-md-5">
               <div class="row">
@@ -33,27 +38,11 @@
               </div>
               <ul class="list-group" *ngIf="comments?.data.length; else NoComments">
                 <li class="list-group-item" *ngFor="let item of comments?.data">
-
-                  <app-option-delete *ngIf="owner(item.owner.id)" (func)="deleteComment(item.id)"></app-option-delete>
-
-                  <!-- <div *ngIf="owner(item.owner.id)" class="btn-group options" dropdown>
-                    <i id="button-animated" type="button" dropdownToggle class="fas fa-ellipsis-v"
-                      aria-controls="dropdown-animated"></i>
-                    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
-                      style="width: 252px; height: 410px; margin-right: 1rem;" role="menu"
-                      aria-labelledby="button-animated">
-                      <li role="menuitem">
-                        <a class="dropdown-item" (click)="deleteComment(item.id)">Excluir</a>
-                      </li>
-                    </ul>
-                  </div> -->
-
-
-
+                  <app-option-delete *ngIf="owner(item?.owner?.id)" (func)="deleteComment(item.id)"></app-option-delete>
                   <div>
                     <img class="img-fluid img-tumblr" [src]="item?.owner.picture">
                     <strong>{{ item?.owner.firstName }} {{ item?.owner.lastName }}</strong>&nbsp;
-                    {{ item.message }}
+                    {{ item?.message }}
                   </div>
                   <div class="p">
                     {{ item?.publishDate }}

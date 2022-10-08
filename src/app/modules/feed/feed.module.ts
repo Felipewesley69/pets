@@ -13,6 +13,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { ModalPostComponent } from './components/content-feed/modal-post/modal-post.component';
 import { CommentsService } from './providers/comments.service';
+import { UtilService } from '@core/services/util.service';
 
 @NgModule({
   imports: [
@@ -32,10 +33,14 @@ import { CommentsService } from './providers/comments.service';
     NewPostComponent,
     ModalPostComponent
   ],
+  exports: [
+    ContentFeedComponent,
+  ],
   providers: [
     PostsService,
     BsModalService,
-    CommentsService
+    CommentsService,
+    UtilService
   ]
 })
 export class FeedModule { }

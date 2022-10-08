@@ -34,6 +34,11 @@ const routes: Routes = [
         canActivate: [AuthorizedOnlyService]
       },
       {
+        path: 'profile',
+        loadChildren: () => import('./modules/pages/profile/profile.module').then(m => m.ProfileModule),
+        canActivate: [AuthorizedOnlyService]
+      },
+      {
         path: '**', component: NotFoundComponent
       }
     ]

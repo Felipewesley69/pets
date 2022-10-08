@@ -22,8 +22,6 @@ export class FeedComponent implements OnInit {
       this.page = 0;
       this.posts = [];
       this.loadPosts();
-      console.log('Atualizando feed');
-      
     });
   }
 

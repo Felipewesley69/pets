@@ -1,3 +1,7 @@
+.container-modal {
+  min-height: 400px;
+}
+
 .container-image {
   display: flex;
   justify-content: center;
@@ -40,6 +44,10 @@
   }
 }
 
+.list-group {
+  overflow-y: scroll;
+  max-height: 400px !important;
+}
 
 ul {
   li {

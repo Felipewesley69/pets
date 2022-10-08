@@ -1,15 +1,13 @@
-<app-new-post></app-new-post>
-
 <div class="card" *ngFor="let item of data">
   <div class="card-title">
     <app-option-delete *ngIf="owner(item.owner.id)" (func)="deletePost(item.id)"></app-option-delete>
     <img [src]="item.owner.picture">
     <div class="card-title-content-header">
-      <h4>{{ item.owner.firstName }} {{ item.owner.lastName }}</h4>
+      <h4 [routerLink]="'/profile/' + item.owner.id">{{ item.owner.firstName }} {{ item.owner.lastName }}</h4>
       <span>{{ item.publishDate }}</span>
     </div>
   </div>
-  <div class="text">
+  <div class="text" (click)="openModal(item)">
     {{ item.text }}
   </div>
   <div class="card-body">

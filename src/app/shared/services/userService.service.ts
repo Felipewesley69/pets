@@ -37,4 +37,12 @@ export class UserServiceService {
     return this.http.get<User>(`${this.url}/user/${id}`);
   }
 
+  update(id: string, entity): Observable<User> {
+    return this.http.put<User>(`${this.url}/user/${id}`, { ...entity });
+  }
+
+  save(entity): Observable<User> {
+    return this.http.put<User>(`${this.url}/user/create`, { ...entity });
+  }
+
 }

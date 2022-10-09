@@ -8,22 +8,24 @@
       <span class="nome"> {{ user?.firstName }} {{ user?.lastName }} </span>
       <span class="cargo"> {{ user?.email }}</span>
     </div>
-    <i class="fas fa-pencil-alt icon-edit" *ngIf="owner()" title="Editar perfil"></i>
+    <i class="fas fa-pencil-alt icon-edit" *ngIf="owner()" (click)="openModal(user?.id)" title="Editar perfil"></i>
   </div>
   <div class="card-content">
-      <hr>
-      <ul>
-        <li *ngFor="let item of list">
-          <i class="{{ item.icon }}"></i>
-          <div class="text">
-            <div class="text-title">
-              {{ item.title }}
-            </div>
-            <div class="text-subtitle">
-              {{ item.subtitle }}
-            </div>
+    <hr>
+    <ul>
+      <li *ngFor="let item of list">
+        <i class="{{ item.icon }}"></i>
+        <div class="text">
+          <div class="text-title">
+            {{ item.title }}
           </div>
-        </li>
-      </ul>
+          <div class="text-subtitle">
+            {{ item.subtitle }}
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
+
+<app-modal-user #modal (updateCardProfile)="userById($event)"></app-modal-user>

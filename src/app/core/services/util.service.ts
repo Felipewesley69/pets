@@ -14,6 +14,10 @@ export class UtilService {
     return JSON.parse(user);
   }
 
+  setUserSessionStorage(user: User): void {
+    window.sessionStorage.setItem('user', JSON.stringify(user));
+  }
+
   owner = (id1: string, id2: string): boolean => id1 == id2;
 
 }

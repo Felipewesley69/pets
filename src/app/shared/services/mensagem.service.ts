@@ -24,7 +24,7 @@ export class MensagemService {
     Swal.fire({
       position: 'center',
       icon: 'success',
-      title: title,
+      title: title || 'Sucesso!',
       showConfirmButton: false,
       timer: 1500
     });

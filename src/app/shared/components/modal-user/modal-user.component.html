@@ -1,0 +1,81 @@
+<form [formGroup]="form" (ngSubmit)="check()">
+  <div class="modal fade modal-no-close-overlay" bsModal #modal="bs-modal" tabindex="-1" role="dialog"
+    aria-labelledby="mySmallModalLabel" aria-hidden="true" [config]="{ backdrop: 'static' }">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          {{ isEdit ? 'Editar' : 'Novo' }} Usuário
+        </div>
+        <div class="container-modal">
+          <div class="modal-body">
+            <div class="row">
+
+              <div class="col-md-2">
+                <label>Título</label>
+                <input type="text" class="form-control" placeholder="Título" maxlength="5" formControlName="title">
+              </div>
+              <div class="col-md-5">
+                <label>Primeiro nome</label>
+                <input type="text" class="form-control" placeholder="Primeiro nome" formControlName="firstName">
+              </div>
+              <div class="col-md-5">
+                <label>Nome do meio</label>
+                <input type="text" class="form-control" placeholder="Nome do meio" formControlName="lastName">
+              </div>
+              <div class="col-md-3">
+                <label>Sexo</label>
+                <select class="form-select" formControlName="gender">
+                  <option selected [value]="null" [disabled]="true">Selecione...</option>
+                  <option value="male">Homen</option>
+                  <option value="female">Mulher</option>
+                  <option value="other">Outro</option>
+                </select>
+              </div>
+              <div class="col-md-9">
+                <label>Email</label>
+                <input type="text" class="form-control" placeholder="Email" formControlName="email">
+              </div>
+              <div class="col-md-3">
+                <label>Data de aniversário</label>
+                <input type="datetime" class="form-control" formControlName="dateOfBirth">
+              </div>
+              <div class="col-md-3">
+                <label>Telefone</label>
+                <input type="text" class="form-control" placeholder="99 9 9999-9999" formControlName="phone">
+              </div>
+              <div class="col-md-6">
+                <label>Url Imagem</label>
+                <input type="text" class="form-control" formControlName="picture">
+              </div>
+
+              <div class="row" formGroupName="location">
+                <div class="col-md-6">
+                  <label>Rua</label>
+                  <input type="text" class="form-control" formControlName="street">
+                </div>
+                <div class="col-md-6">
+                  <label>Cidade</label>
+                  <input type="text" class="form-control" formControlName="city">
+                </div>
+                <div class="col-md-6">
+                  <label>Estado</label>
+                  <input type="text" class="form-control" formControlName="state">
+                </div>
+                <div class="col-md-6">
+                  <label>País</label>
+                  <input type="text" class="form-control" formControlName="country">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="pull-right">
+            <app-default-button class="mr-2" type="submit" label="Salvar"></app-default-button>
+            <app-secondary-button label="Cancelar" (func)="close()"></app-secondary-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

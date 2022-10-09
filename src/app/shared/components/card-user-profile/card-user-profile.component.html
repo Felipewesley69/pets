@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-top">
+    <div class="card-top-banner"></div>
+    <div class="card-top-img">
+      <img [src]="user?.picture" alt="Picture">
+    </div>
+    <div class="card-top-dados">
+      <span class="nome"> {{ user?.firstName }} {{ user?.lastName }} </span>
+      <span class="cargo"> {{ user?.email }}</span>
+    </div>
+    <i class="fas fa-pencil-alt icon-edit" *ngIf="owner()" title="Editar perfil"></i>
+  </div>
+  <div class="card-content">
+      <hr>
+      <ul>
+        <li *ngFor="let item of list">
+          <i class="{{ item.icon }}"></i>
+          <div class="text">
+            <div class="text-title">
+              {{ item.title }}
+            </div>
+            <div class="text-subtitle">
+              {{ item.subtitle }}
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+</div>

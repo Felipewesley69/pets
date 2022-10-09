@@ -1,9 +1,6 @@
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { UtilService } from '@core/services/util.service';
 import { User } from '@shared/models/user.model';
-import { UserServiceService } from '@shared/services/userService.service';
-import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-card-user',
@@ -15,22 +12,10 @@ export class CardUserComponent implements OnInit {
   user: User;
   list: any;
 
-  constructor(
-    private utilService: UtilService,
-    private router: ActivatedRoute,
-    private userService: UserServiceService
-  ) { }
+  constructor(private utilService: UtilService) { }
 
   ngOnInit() {
-    this.router.params.subscribe(res => {
-      if (Boolean(res.userId)) {
-        this.userService.findById(res.userId)
-          .pipe(finalize(() => this.setList()))
-          .subscribe(res => this.user = res);
-      } else {
-        this.loadUser();
-      }
-    });
+    this.loadUser();
   }
 
   loadUser(): void {

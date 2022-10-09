@@ -12,7 +12,7 @@ export class RequestsComponent implements OnInit {
     links: [
       {
         icon: 'fas fa-user-plus',
-        label: 'Conexões',
+        label: 'Minhas conexões',
         route: 'requests/connections'
       },
       {

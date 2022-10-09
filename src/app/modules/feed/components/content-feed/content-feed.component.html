@@ -11,9 +11,11 @@
     {{ item.text }}
   </div>
   <div class="card-body">
-    <div class="container-image" (click)="openModal(item)" *ngIf="item.image">
-      <img class="img-fluid" [src]="item.image"> 
-    </div>
+    <div class="container-image"
+      *ngIf="item.image"
+      (click)="openModal(item)"
+      style="background: url({{item?.image}});"
+    ></div>
   </div>
   <div class="card-footer">
     <div class="card-footer-icons">

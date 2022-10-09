@@ -11,7 +11,7 @@ import { ButtonsModule } from '@shared/components/buttons/buttons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
-import { ModalPostComponent } from './components/content-feed/modal-post/modal-post.component';
+import { ModalPostComponent } from './components/modal-post/modal-post.component';
 import { CommentsService } from './providers/comments.service';
 import { UtilService } from '@core/services/util.service';
 

@@ -18,8 +18,7 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-md-7">
-              <div class="container-image">
-                <img class="img-fluid img-tumblr" [src]="post?.image">
+              <div class="container-image" *ngIf="post?.image" style="background: url({{post?.image}});">
               </div>
               <div class="row">
                 <div class="col-md-12 pt-3 pb-2">
@@ -53,16 +52,10 @@
           </div>
         </div>
       </div>
-      <!-- <div class="modal-footer">
-          <div class="pull-right">
-            <app-default-button class="mr-2" label="Salvar"></app-default-button>
-            <app-secondary-button label="Cancelar" (func)="close()"></app-secondary-button>
-          </div>
-        </div> -->
     </div>
   </div>
 </div>
 
 <ng-template #NoComments>
-  <p class="text-center">Sem Comentários.</p>
+  <p class="text-center">Sem comentários.</p>
 </ng-template>

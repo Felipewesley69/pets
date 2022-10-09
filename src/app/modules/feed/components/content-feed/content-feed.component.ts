@@ -2,7 +2,7 @@ import { Post } from './../../providers/posts.model';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { UserServiceService } from '@shared/services/userService.service';
 import { PostsService } from '../../providers/posts.service';
-import { ModalPostComponent } from './modal-post/modal-post.component';
+import { ModalPostComponent } from '../modal-post/modal-post.component';
 import { UtilService } from '@core/services/util.service';
 
 @Component({

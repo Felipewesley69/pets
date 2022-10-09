@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@use './app/theme/scss/components.scss';
+@use "./app/theme/scss/components.scss";
 
 * {
   margin: 0;
@@ -7,8 +7,25 @@
   box-sizing: border-box;
 }
 
-html, body {
-  background-color: #E5E5E5;
+html,
+body {
+  background-color: #e5e5e5;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ccc;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3085d6;
+  border-radius: 20px;
+  border: 1px solid #ccc;
 }
 
 a {
@@ -46,6 +63,16 @@ ul > li {
   height: 33px;
   border-radius: 50%;
   margin-right: 15px;
+}
+
+.required::after {
+  content: "*";
+  // color: red;
+  margin-left: 2px;
+}
+
+.ng-invalid.ng-touched {
+  border-color: #f05050;
 }
 
 @keyframes fadein {

@@ -1,5 +1,4 @@
-$primary-color: #2e76b5;
-$dark-color: #515151;
+@use '../../../theme/base/variables';
 
 .card {
   min-height: 386px;
@@ -20,7 +19,7 @@ $dark-color: #515151;
       height: 79px;
       top: 0;
       left: 0;
-      background-color: #456585;
+      background-color: variables.$primary-color;
       border-radius: 0.8rem 0.8rem 0 0;
     }
 
@@ -53,7 +52,7 @@ $dark-color: #515151;
       .nome {
         font-size: 1.3rem;
         font-weight: 600;
-        color: $dark-color;
+        color: variables.$dark-color;
       }
     }
   }
@@ -76,7 +75,7 @@ $dark-color: #515151;
         &:not(:last-child) {
           padding-bottom: 7px;
           margin-bottom: 7px;
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid variables.$light-gray;
         }
 
         .text {
@@ -94,9 +93,9 @@ $dark-color: #515151;
           display: flex;
           justify-content: center;
           align-items: center;
-          border: 1px solid #fff;
-          color: #fff;
-          background-color: #456585;
+          border: 1px solid variables.$light-color;
+          color: variables.$light-color;
+          background-color: variables.$primary-color;
           border-radius: 50%;
           width: 35px;
           height: 35px;

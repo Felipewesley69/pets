@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@use "./app/theme/scss/components.scss";
+@use "./app/theme/base/variables";
+@use "./app/theme/components/components.scss";
 
 * {
   margin: 0;
@@ -9,7 +10,7 @@
 
 html,
 body {
-  background-color: #e5e5e5;
+  background-color: variables.$background-body;
 }
 
 ::-webkit-scrollbar {
@@ -18,14 +19,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #ccc;
+  background: variables.$light-gray;
   border-radius: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #3085d6;
+  background-color: variables.$primary-color;
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid variables.$light-gray;
 }
 
 a {
@@ -67,12 +68,11 @@ ul > li {
 
 .required::after {
   content: "*";
-  // color: red;
   margin-left: 2px;
 }
 
 .ng-invalid.ng-touched {
-  border-color: #f05050;
+  border-color: variables.$form-invalid;;
 }
 
 @keyframes fadein {

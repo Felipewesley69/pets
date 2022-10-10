@@ -1,3 +1,5 @@
+@use '../../../theme/base/variables';
+
 div {
   display: flex;
   flex-direction: column;
@@ -8,11 +10,11 @@ div {
 
   h1 {
     font-size: 12rem;
-    color: rgb(161, 161, 161);
+    color: variables.$dark-color;
   }
   
   span {
     font-size: 1.5rem;
-    color: rgb(119, 119, 119);
+    color: variables.$light-gray;
   }
 }

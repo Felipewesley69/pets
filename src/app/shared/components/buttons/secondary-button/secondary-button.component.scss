@@ -1,6 +1,8 @@
+@use '../../../../theme/base/variables';
+
 .button {
   border: none;
-  color: #515151;
+  color: variables.$dark-color;
   padding: 3px 20px;
   border-radius: 25px;
   background-color: transparent;

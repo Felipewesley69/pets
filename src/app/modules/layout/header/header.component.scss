@@ -1,5 +1,4 @@
-$primary-color: #2e76b5;
-$dark-color: #515151;
+@use '../../../theme/base/variables';
 
 %flex-center {
   display: flex;
@@ -8,7 +7,7 @@ $dark-color: #515151;
 }
 
 .navbar {
-  background-color: #fff;
+  background-color: variables.$light-color;
   height: 53px;
   padding: 0;
   position: fixed;
@@ -16,16 +15,16 @@ $dark-color: #515151;
   z-index: 10;
 
   .router-link-active {
-    border-bottom: 2.5px solid #397cb9;
+    border-bottom: 2.5px solid variables.$primary-color;
 
     a {
       font-weight: 650;
-      color: #397cb9;
+      color: variables.$primary-color;
     }
   }
 
   a {
-    color: $dark-color;
+    color: variables.$dark-color;
     font-weight: 500;
 
     &:hover {
@@ -46,7 +45,7 @@ $dark-color: #515151;
         font-size: 2.1rem;
 
         i {
-          color: #426c95;
+          color: variables.$primary-color;
           font-size: 34px;
         }
 
@@ -55,7 +54,7 @@ $dark-color: #515151;
       &-search {
         input {
           border-radius: 25px;
-          border: 1px solid $dark-color;
+          border: 1px solid variables.$dark-color;
           border-right: none;
           padding-left: 20px;
 
@@ -67,7 +66,7 @@ $dark-color: #515151;
 
         .fa-search {
           background-color: transparent;
-          border: 1px solid $dark-color;
+          border: 1px solid variables.$dark-color;
           padding: 0 20px;
           border-top-right-radius: 25px;
           border-bottom-right-radius: 25px;
@@ -96,7 +95,7 @@ $dark-color: #515151;
       .fa-bell,
       .btn-user-options {
         border-radius: 50%;
-        border: 1px solid $dark-color;
+        border: 1px solid variables.$dark-color;
         padding: 10px;
 
         &:hover {
@@ -109,9 +108,9 @@ $dark-color: #515151;
       }
 
       .btn-user-options {
-        border: 1px solid #fff;
-        color: #fff;
-        background-color: $primary-color;
+        border: 1px solid variables.$light-color;
+        color: variables.$light-color;
+        background-color: variables.$primary-color;
       }
 
       .dropdown-menu {
@@ -136,7 +135,7 @@ $dark-color: #515151;
         }
 
         & li:not(:last-child) {
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid variables.$light-gray;
           margin-bottom: 5px;
           padding-bottom: 5px;
         }

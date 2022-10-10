@@ -1,3 +1,5 @@
+@use '../../../theme/base/variables';
+
 .card {
   min-height: auto;
 
@@ -41,6 +43,6 @@
 }
 
 .link-activated {
-  background-color: #2c77b8;
+  background-color: variables.$primary-color;
   color: #FFF;
 }

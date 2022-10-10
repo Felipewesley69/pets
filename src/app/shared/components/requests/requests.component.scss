@@ -1,3 +1,5 @@
+@use '../../../theme/base/variables';
+
 .card {
   min-height: auto;
 
@@ -21,13 +23,13 @@
       align-items: center;
 
       &:first-child {
-        border-top: 1px solid #ccc;
+        border-top: 1px solid variables.$light-gray;
         margin-top: 5px;
         padding-top: 5px;
       }
 
       &:not(:last-child) {
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid variables.$light-gray;
         margin-bottom: 5px;
         padding-bottom: 5px;
       }
@@ -47,9 +49,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid #fff;
-        color: #fff;
-        background-color: #2d75b6;
+        border: 1px solid variables.$light-color;
+        color: variables.$light-color;
+        background-color: variables.$secondary-color;
         border-radius: 50%;
         width: 35px;
         height: 35px;
@@ -61,7 +63,7 @@
   .card-footer {
     text-align: center;
     color: #fff;
-    background-color: #2d75b6;
+    background-color: variables.$secondary-color;
     font-size: 11px;
     height: 48px;
 

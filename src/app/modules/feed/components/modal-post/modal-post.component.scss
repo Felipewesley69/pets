@@ -2,6 +2,19 @@
   min-height: 400px;
 }
 
+.title-post-text {
+  display: flex;
+  align-items: baseline;
+
+  i {
+    font-size: .3rem;
+  }
+
+  h4 {
+    margin: 0 1rem 0 0;
+  }
+}
+
 .container-image {
   display: flex;
   background-color: black !important;

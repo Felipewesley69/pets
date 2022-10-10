@@ -1,33 +1,38 @@
-<div class="card" *ngFor="let item of data">
-  <div class="card-title">
-    <app-option-delete *ngIf="owner(item.owner.id)" (func)="deletePost(item.id)"></app-option-delete>
-    <img [src]="item.owner.picture">
-    <div class="card-title-content-header">
-      <h4 [routerLink]="'/profile/' + item.owner.id">{{ item.owner.firstName }} {{ item.owner.lastName }}</h4>
-      <span>{{ item.publishDate }}</span>
-    </div>
-  </div>
-  <div class="text" (click)="openModal(item)">
-    {{ item.text }}
-  </div>
-  <div class="card-body">
-    <div class="container-image"
-      *ngIf="item.image"
-      (click)="openModal(item)"
-      style="background: url({{item?.image}});"
-    ></div>
-  </div>
-  <div class="card-footer">
-    <div class="card-footer-icons">
-      <div>
-        <i class="far fa-thumbs-up like"></i>
-        <span>Curtir</span>
-      </div>
-      <div>
-        <i class="far fa-thumbs-up like-count"></i>
-        <span>{{item.likes}}</span>
+<ng-container *ngIf="!load.load; else loading">
+  <div class="card" *ngFor="let item of data">
+    <div class="card-title">
+      <app-option-delete *ngIf="owner(item.owner.id)" (func)="deletePost(item.id)"></app-option-delete>
+      <img [src]="item.owner.picture">
+      <div class="card-title-content-header">
+        <h4 [routerLink]="'/profile/' + item.owner.id">{{ item.owner.firstName }} {{ item.owner.lastName }}</h4>
+        <span>{{ item.publishDate | date: 'dd/MM/yyyy' }}</span>
       </div>
     </div>
+    <div class="text" (click)="openModal(item)">
+      {{ item.text }}
+    </div>
+    <div class="card-body">
+      <div class="container-image" *ngIf="item.image" (click)="openModal(item)"
+        style="background: url({{item?.image}});">
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="card-footer-icons">
+        <div>
+          <i class="far fa-thumbs-up like"></i>
+          <span>Curtir</span>
+        </div>
+        <div>
+          <i class="far fa-thumbs-up like-count"></i>
+          <span>{{item.likes}}</span>
+        </div>
+      </div>
+    </div>
   </div>
+</ng-container>
 
-  <app-modal-post #modal></app-modal-post>
+<app-modal-post #modal></app-modal-post>
+
+<ng-template #loading>
+  <app-loading-animation></app-loading-animation>
+</ng-template>

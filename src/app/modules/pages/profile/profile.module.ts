@@ -13,8 +13,7 @@ import { CardUserProfileModule } from '@shared/components/card-user-profile/card
     ProfileRoutingModule,
     CardUserProfileModule,
     ButtonsModule,
-    FeedModule
-  ],
+    FeedModule  ],
   declarations: [ProfileComponent],
   providers: [
     PostsService

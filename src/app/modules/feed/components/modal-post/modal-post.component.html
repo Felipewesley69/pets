@@ -7,7 +7,8 @@
           <img class="img-tumblr" [src]="urlPicture">
           <div class="title-post-text">
             <h4>{{ post?.owner.firstName }} {{ post?.owner.lastName }}</h4>
-            <span>{{ post?.publishDate }}</span>
+            <i class="fas fa-circle"></i>
+            <span>{{ post?.publishDate | date: 'dd/MM/yyyy' }}</span>
           </div>
         </div>
         <button type="button" class="close-modal" aria-label="Close" (click)="close()">
@@ -18,36 +19,40 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-md-7">
-              <div class="container-image" *ngIf="post?.image" style="background: url({{post?.image}});">
-              </div>
-              <div class="row">
-                <div class="col-md-12 pt-3 pb-2">
-                  {{ post?.text }}
+              <ng-container *ngIf="!loadPost.load; else loadingPost">
+                <div class="container-image" *ngIf="post?.image" style="background: url({{post?.image}});">
                 </div>
-              </div>
+                <div class="row">
+                  <div class="col-md-12 pt-3 pb-2">
+                    {{ post?.text }}
+                  </div>
+                </div>
+              </ng-container>
             </div>
             <div class="col-md-5">
-              <div class="row">
-                <div class="input-group mb-3 input-comments">
-                  <input type="text" class="form-control" placeholder="Adicionar comentário..."
-                    aria-label="Adicionar comentário..." [formControl]="message" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-primary" [disabled]="this.message.invalid" type="button" id="button-addon2" (click)="createComment()"><i
-                      class="fas fa-check"></i></button>
+              <ng-container *ngIf="!loadComments.load; else loadingComments">
+                <div class="row">
+                  <div class="input-group mb-3 input-comments">
+                    <input type="text" class="form-control" placeholder="Adicionar comentário..."
+                      aria-label="Adicionar comentário..." [formControl]="message" aria-describedby="button-addon2">
+                    <button class="btn btn-outline-primary" [disabled]="this.message.invalid" type="button" id="button-addon2" (click)="createComment()"><i
+                        class="fas fa-check"></i></button>
+                  </div>
                 </div>
-              </div>
-              <ul class="list-group" *ngIf="comments?.data.length; else NoComments">
-                <li class="list-group-item" *ngFor="let item of comments?.data">
-                  <app-option-delete *ngIf="owner(item?.owner?.id)" (func)="deleteComment(item.id)"></app-option-delete>
-                  <div>
-                    <img class="img-fluid img-tumblr" [src]="item?.owner.picture">
-                    <strong>{{ item?.owner.firstName }} {{ item?.owner.lastName }}</strong>&nbsp;
-                    {{ item?.message }}
-                  </div>
-                  <div class="p">
-                    {{ item?.publishDate }}
-                  </div>
-                </li>
-              </ul>
+                <ul class="list-group" *ngIf="comments?.data.length; else NoComments">
+                  <li class="list-group-item" *ngFor="let item of comments?.data">
+                    <app-option-delete *ngIf="owner(item?.owner?.id)" (func)="deleteComment(item.id)"></app-option-delete>
+                    <div>
+                      <img class="img-fluid img-tumblr" [src]="item?.owner.picture">
+                      <strong>{{ item?.owner.firstName }} {{ item?.owner.lastName }}</strong>&nbsp;
+                      {{ item?.message }}
+                    </div>
+                    <div class="p">
+                      {{ item?.publishDate }}
+                    </div>
+                  </li>
+                </ul>
+              </ng-container>
             </div>
           </div>
         </div>
@@ -55,6 +60,14 @@
     </div>
   </div>
 </div>
+
+<ng-template #loadingComments>
+  <app-loading-comments></app-loading-comments>
+</ng-template>
+
+<ng-template #loadingPost>
+  <app-loading-image></app-loading-image>
+</ng-template>
 
 <ng-template #NoComments>
   <p class="text-center">Sem comentários.</p>

@@ -1,3 +1,4 @@
+import { Loading } from './../../models/loading.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UtilService } from '@core/services/util.service';
@@ -14,7 +15,7 @@ import { ModalUserComponent } from '../modal-user/modal-user.component';
 export class CardUserProfileComponent implements OnInit {
 
   @ViewChild('modal') modal: ModalUserComponent;
-
+  load = new Loading();
   user: User;
   list: any;
 
@@ -29,7 +30,7 @@ export class CardUserProfileComponent implements OnInit {
   }
 
   userById(id: string): void {
-    this.userService.findById(id)
+    this.userService.findById(id, this.load)
       .pipe(finalize(() => this.setList()))
       .subscribe(res => this.user = res);
   }

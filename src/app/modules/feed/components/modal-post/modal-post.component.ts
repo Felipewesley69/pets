@@ -1,3 +1,4 @@
+import { Loading } from './../../../../shared/models/loading.model';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { UtilService } from '@core/services/util.service';
@@ -24,6 +25,8 @@ export class ModalPostComponent implements OnInit {
   post: Post;
   page: number = 0;
   comments: Comments;
+  loadComments = new Loading(true);
+  loadPost = new Loading(true);
 
   constructor(
     private userService: UserServiceService,
@@ -37,19 +40,20 @@ export class ModalPostComponent implements OnInit {
   }
 
   open(post: Post) {
-    this.urlPicture = post.owner.picture;
     this.loadPostById(post.id);
+    this.urlPicture = post.owner.picture;
+    this.loadComments.load = true;
     this.modal.show();
   }
 
   loadPostById(id): void {
-    this.postService.loadById(id)
+    this.postService.loadById(id, this.loadPost)
       .pipe(finalize(() => this.loadCommentsByPost()))
       .subscribe(res => this.post = res);
   }
 
   loadCommentsByPost(): void {
-    this.commentsService.getByPost(this.post.id, { page: this.page }).subscribe(res => this.comments = res);
+    this.commentsService.getByPost(this.post.id, { page: this.page }, this.loadComments).subscribe(res => this.comments = res);
   }
 
   createComment(): void {
@@ -59,14 +63,14 @@ export class ModalPostComponent implements OnInit {
       owner: this.userService.userId
     }
 
-    this.commentsService.create(form).subscribe(() => {
+    this.commentsService.create(form, this.loadComments).subscribe(() => {
       this.loadCommentsByPost();
       this.message.reset();
     });
   }
 
   deleteComment(id: string): void {
-    this.commentsService.delete(id).subscribe(() => this.loadCommentsByPost());
+    this.commentsService.delete(id, this.loadComments).subscribe(() => this.loadCommentsByPost());
   }
 
   owner = (id: string): boolean => this.utilService.owner(id, this.userService.userId);

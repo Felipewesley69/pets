@@ -4,6 +4,7 @@ import { UserServiceService } from '@shared/services/userService.service';
 import { PostsService } from '../../providers/posts.service';
 import { ModalPostComponent } from '../modal-post/modal-post.component';
 import { UtilService } from '@core/services/util.service';
+import { Loading } from '@shared/models/loading.model';
 
 @Component({
   selector: 'app-content-feed',
@@ -13,6 +14,8 @@ import { UtilService } from '@core/services/util.service';
 export class ContentFeedComponent implements OnInit {
 
   @Input() data: Post[];
+  @Input() load: Loading;
+
   @ViewChild('modal') m: ModalPostComponent;
 
   userId = this.userService.userId;

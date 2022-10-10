@@ -1,3 +1,4 @@
+import { Loading } from './../../../shared/models/loading.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from 'app/modules/feed/providers/posts.model';
@@ -15,6 +16,7 @@ export class ProfileComponent implements OnInit {
   posts: Post[] = [];
   limit: number = 10;
   page: number = 0;
+  load = new Loading();
 
   constructor(
     private routerActivated: ActivatedRoute,
@@ -29,7 +31,7 @@ export class ProfileComponent implements OnInit {
     this.routerActivated.params.subscribe(res => {
       if (Boolean(res.userId)) {
         this.page = 0;
-        this.postsService.loadByIdUser(res.userId, { limit: this.limit, page: this.page })
+        this.postsService.loadByIdUser(res.userId, { limit: this.limit, page: this.page }, this.load)
           .subscribe(res => {
             this.posts = [];
             this.posts.push(...res.data);
@@ -47,7 +49,7 @@ export class ProfileComponent implements OnInit {
   }
 
   loadPosts(): void {
-    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }).subscribe(res => this.posts.push(...res.data));
+    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.load).subscribe(res => this.posts.push(...res.data));
   }
 
   loadPlus(): void {

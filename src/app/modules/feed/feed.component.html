@@ -5,7 +5,7 @@
     </div>
     <div class="col-md-6 col-card-feed">
       <app-new-post></app-new-post>
-      <app-content-feed [data]="posts"></app-content-feed>
+      <app-content-feed [data]="posts" [load]="loading"></app-content-feed>
       <div class="col-md-12 text-center mt-3 mb-3">
         <app-secondary-button label="Carregar mais..." (func)="loadPlus()"></app-secondary-button>
       </div>

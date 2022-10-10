@@ -7,11 +7,11 @@
   align-items: baseline;
 
   i {
-    font-size: .3rem;
+    font-size: 0.2rem;
   }
 
   h4 {
-    margin: 0 1rem 0 0;
+    margin: 0 .5rem 0 0;
   }
 }
 
@@ -46,7 +46,7 @@
     }
 
     span {
-      padding-left: 1rem;
+      padding-left: .5rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -57,7 +57,7 @@
 
 .list-group {
   overflow-y: auto;
-  height: 447px !important;
+  max-height: 447px !important;
 }
 
 ul {

@@ -14,9 +14,10 @@ import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { ModalPostComponent } from './components/modal-post/modal-post.component';
 import { CommentsService } from './providers/comments.service';
 import { UtilService } from '@core/services/util.service';
-import { LoadingAnimationModule } from '@shared/components/loading-animation/loading-animation.module';
-import { LoadingCommentsModule } from '@shared/components/loading-comments/loading-comments.module';
-import { LoadingImageModule } from '@shared/components/loading-image/loading-image.module';
+import { LoadingAnimationModule } from '@shared/components/loadings/loading-animation/loading-animation.module';
+import { LoadingCommentsModule } from '@shared/components/loadings/loading-comments/loading-comments.module';
+import { LoadingImageModule } from '@shared/components/loadings/loading-image/loading-image.module';
+import { PublishDatePipeModule } from '@shared/pipes/publish-date/publish-date.module';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { LoadingImageModule } from '@shared/components/loading-image/loading-ima
     ModalModule,
     LoadingAnimationModule,
     LoadingCommentsModule,
-    LoadingImageModule
+    LoadingImageModule,
+    PublishDatePipeModule
   ],
   declarations: [
     FeedComponent,

@@ -52,9 +52,13 @@ export class ProfileComponent implements OnInit {
     this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.load).subscribe(res => this.posts.push(...res.data));
   }
 
+  loadPlusPosts(): void {
+    this.postsService.load({ limit: this.limit, page: this.page }).subscribe(res => this.posts.push(...res.data));
+  }
+
   loadPlus(): void {
     this.page++;
-    this.loadPosts();
+    this.loadPlusPosts();
   }
 
 }

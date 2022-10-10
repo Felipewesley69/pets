@@ -5,7 +5,7 @@
       <img [src]="item.owner.picture">
       <div class="card-title-content-header">
         <h4 [routerLink]="'/profile/' + item.owner.id">{{ item.owner.firstName }} {{ item.owner.lastName }}</h4>
-        <span>{{ item.publishDate | date: 'dd/MM/yyyy' }}</span>
+        <span>{{ item.publishDate | publishDate }}</span>
       </div>
     </div>
     <div class="text" (click)="openModal(item)">

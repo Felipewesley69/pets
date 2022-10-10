@@ -31,9 +31,13 @@ export class FeedComponent implements OnInit {
     this.postsService.load({ limit: this.limit, page: this.page }, this.loading).subscribe(res => this.posts.push(...res.data));
   }
 
+  load(): void {
+    this.postsService.load({ limit: this.limit, page: this.page }).subscribe(res => this.posts.push(...res.data));
+  }
+
   loadPlus(): void {
     this.page++;
-    this.loadPosts();
+    this.load();
   }
 
 }

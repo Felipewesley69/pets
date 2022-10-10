@@ -8,7 +8,7 @@
           <div class="title-post-text">
             <h4>{{ post?.owner.firstName }} {{ post?.owner.lastName }}</h4>
             <i class="fas fa-circle"></i>
-            <span>{{ post?.publishDate | date: 'dd/MM/yyyy' }}</span>
+            <span>{{ post?.publishDate | publishDate }}</span>
           </div>
         </div>
         <button type="button" class="close-modal" aria-label="Close" (click)="close()">
@@ -48,7 +48,7 @@
                       {{ item?.message }}
                     </div>
                     <div class="p">
-                      {{ item?.publishDate }}
+                      {{ item?.publishDate | publishDate }}
                     </div>
                   </li>
                 </ul>

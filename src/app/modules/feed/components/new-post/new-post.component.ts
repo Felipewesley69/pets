@@ -30,6 +30,7 @@ export class NewPostComponent implements OnInit {
     this.form = this.fb.group({
       text: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(500)]],
       image: [null],
+      arquivo: [null],
       likes: [0],
       tags: [null],
       owner: [null, Validators.required]
@@ -54,16 +55,17 @@ export class NewPostComponent implements OnInit {
   }
 
   uploadeImage(): void {
-    if (!this.file.get('media')) {
-      this.newPost();
-    } else {
+    if (this.file.get('media')) {
       this.imageService.updateImage(this.file)
         .pipe(finalize(() => this.newPost()))
         .subscribe(res => {
           this.form.get('image').setValue(res.data.media);
           this.urlImage = null;
+          this.form.get('arquivo').setValue(null);
           this.file.delete('media');
         });
+    } else {
+      this.newPost();
     }
   }
 
@@ -73,12 +75,9 @@ export class NewPostComponent implements OnInit {
     if (file) {
       const fileReader = new FileReader();
       fileReader.readAsDataURL(file);
-      fileReader.onloadend = () => {
-        console.log(fileReader.result);
-        this.urlImage = fileReader.result;
-        this.file.append('key', keyImage);
-        this.file.append('media', file);
-      }
+      fileReader.onloadend = () => this.urlImage = fileReader.result;
+      this.file.append('key', keyImage);
+      this.file.append('media', file);
     }
   }
 

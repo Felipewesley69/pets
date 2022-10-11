@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { UserServiceService } from '@shared/services/userService.service';
 import Swal from 'sweetalert2';
 
@@ -10,9 +10,18 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private touter: Router, public userService: UserServiceService) { }
+  classMenu: string;
 
+  constructor(private touter: Router, public userService: UserServiceService) {
+  }
+  
   ngOnInit(): void {
+    this.classMenu = window.innerWidth > 991 ? 'dropdown-menu-right' : 'dropdown-menu-left';
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.classMenu = event.target.innerWidth > 991 ? 'dropdown-menu-right' : 'dropdown-menu-left';
   }
 
   loguot(): void {

@@ -16,8 +16,15 @@
       <label for="arquivo">
         <i class="far fa-image"></i>
         Imagem
-        <input type="file" name="arquivo" id="arquivo" accept=".jpg, .png" [multiple]="false"
-          (change)="onUploadChange($event)">
+        <input
+          type="file"
+          id="arquivo"
+          name="arquivo"
+          [multiple]="false"
+          accept=".jpg, .png"
+          formControlName="arquivo"
+          (change)="onUploadChange($event)"
+        >
       </label>
       <div>
         <app-default-button *ngIf="form.valid" class="fade-in" label="Publicar" type="submit"></app-default-button>
@@ -25,7 +32,7 @@
         </app-secondary-button>
       </div>
     </div>
-    <div class="card-body" *ngIf="urlImage">
+    <div class="card-body pt-0" *ngIf="urlImage">
       <img [src]="urlImage" class="image-preview" alt="" id="img">
     </div>
   </div>

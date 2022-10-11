@@ -14,7 +14,7 @@ import { token } from 'token';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
-  constructor() { }
+  constructor() {}
 
   intercept(
     req: HttpRequest<any>,
@@ -26,6 +26,14 @@ export class RequestInterceptor implements HttpInterceptor {
     | HttpResponse<any>
     | HttpUserEvent<any>
   > {
+
+    if (req.headers.get('skip') !== undefined && req.headers.get('skip') !== null){
+      req = req.clone({
+        headers: req.headers.delete('skip').set('Accept', '*/*')
+      });
+      return next.handle(req);
+    }
+
     req = req.clone({
       headers: req.headers.set('app-id', token)
     });

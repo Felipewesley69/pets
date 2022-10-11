@@ -40,6 +40,11 @@
       display: none;
     }
 
+    .image-preview {
+      width: 150px;
+      border-radius: 12px;
+    }
+
     label {
       color: variables.$primary-color;
       padding: 0 5px;

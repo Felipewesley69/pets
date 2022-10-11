@@ -1,38 +1,32 @@
-<form [formGroup]="form" (ngSubmit)="newPost()">
+<form [formGroup]="form" (ngSubmit)="uploadeImage()">
   <div class="card">
     <div class="card-title">
       <img [src]="user?.picture" alt="Picture">
-      <textarea rows="1" placeholder="Criar nova publicação..." formControlName="text" minlength="6" maxlength="50"></textarea>
+      <textarea rows="2" placeholder="Criar nova publicação..." formControlName="text" minlength="6"
+        maxlength="500"></textarea>
     </div>
     <div class="card-body">
-      <!-- <label for="arquivo">
+      <!-- 
+      <label for="arquivo">
         <i class="fas fa-video"></i>
         Video
         <input type="file" name="arquivo" id="arquivo">
       </label>
-      <label for="arquivo">
-        <i class="far fa-calendar"></i>
-        Evento
-        <input type="file" name="arquivo" id="arquivo">
-      </label>
-      <label for="arquivo">
-        <i class="fas fa-paperclip"></i>
-        Anexar
-        <input type="file" name="arquivo" id="arquivo">
-      </label> -->
+       -->
       <label for="arquivo">
         <i class="far fa-image"></i>
         Imagem
-        <input
-          type="file"
-          name="arquivo"
-          id="arquivo"
-          formControlName="image"
-          accept="image/*"
-          (change)="changeFile($event)"
-          >
+        <input type="file" name="arquivo" id="arquivo" accept=".jpg, .png" [multiple]="false"
+          (change)="onUploadChange($event)">
       </label>
-      <app-default-button *ngIf="form.valid" class="fade-in" label="Publicar" type="submit"></app-default-button>
+      <div>
+        <app-default-button *ngIf="form.valid" class="fade-in" label="Publicar" type="submit"></app-default-button>
+        <app-secondary-button *ngIf="form.valid || !!urlImage" class="fade-in" label="Cancelar" (click)="clear()">
+        </app-secondary-button>
+      </div>
+    </div>
+    <div class="card-body" *ngIf="urlImage">
+      <img [src]="urlImage" class="image-preview" alt="" id="img">
     </div>
   </div>
 </form>

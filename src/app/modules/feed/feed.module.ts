@@ -19,6 +19,7 @@ import { LoadingCommentsModule } from '@shared/components/loadings/loading-comme
 import { LoadingImageModule } from '@shared/components/loadings/loading-image/loading-image.module';
 import { PublishDatePipeModule } from '@shared/pipes/publish-date/publish-date.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ImageService } from './providers/image.service';
 
 @NgModule({
   imports: [
@@ -50,7 +51,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     PostsService,
     BsModalService,
     CommentsService,
-    UtilService
+    UtilService,
+    ImageService
   ]
 })
 export class FeedModule { }

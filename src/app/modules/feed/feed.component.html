@@ -3,12 +3,18 @@
     <div class="col-md-3">
       <app-card-user></app-card-user>
     </div>
-    <div class="col-md-6 col-card-feed">
+    <div
+      class="col-md-6 col-card-feed search-results"
+      infiniteScroll
+      [infiniteScrollDistance]="1"
+      [infiniteScrollThrottle]="1000"
+      [scrollWindow]="windowWidth"
+      (scrolled)="loadPlus()"  
+      (scrolledUp)="loadPosts()"  
+    >
       <app-new-post></app-new-post>
       <app-content-feed [data]="posts" [load]="loading"></app-content-feed>
-      <div class="col-md-12 text-center mt-3 mb-3">
-        <app-secondary-button label="Carregar mais..." (func)="loadPlus()"></app-secondary-button>
-      </div>
+      
     </div>
     <div class="col-md-3 col-request">
       <app-requests></app-requests>

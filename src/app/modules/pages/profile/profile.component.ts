@@ -13,14 +13,15 @@ import { finalize } from 'rxjs/operators';
 export class ProfileComponent implements OnInit {
 
   userId: string;
-  posts: Post[] = [];
-  limit: number = 10;
   page: number = 0;
+  limit: number = 10;
+  posts: Post[] = [];
   load = new Loading();
+  loadingPlus = new Loading();
 
   constructor(
-    private routerActivated: ActivatedRoute,
     private postsService: PostsService,
+    private routerActivated: ActivatedRoute
   ) {
     this.routerActivated.params
       .pipe(finalize(() => this.loadPosts()))
@@ -40,20 +41,16 @@ export class ProfileComponent implements OnInit {
         this.loadPosts();
       }
     });
-
-    this.postsService.updatePosts.subscribe(() => {
-      this.page = 0;
-      this.posts = [];
-      this.loadPosts();
-    });
   }
 
   loadPosts(): void {
-    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.load).subscribe(res => this.posts.push(...res.data));
+    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.load)
+      .subscribe(res => this.posts.push(...res.data));
   }
 
   loadPlusPosts(): void {
-    this.postsService.load({ limit: this.limit, page: this.page }).subscribe(res => this.posts.push(...res.data));
+    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.loadingPlus)
+      .subscribe(res => this.posts.push(...res.data));
   }
 
   loadPlus(): void {

@@ -1,3 +1,4 @@
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component';
@@ -13,7 +14,9 @@ import { CardUserProfileModule } from '@shared/components/card-user-profile/card
     ProfileRoutingModule,
     CardUserProfileModule,
     ButtonsModule,
-    FeedModule  ],
+    FeedModule,
+    InfiniteScrollModule
+  ],
   declarations: [ProfileComponent],
   providers: [
     PostsService

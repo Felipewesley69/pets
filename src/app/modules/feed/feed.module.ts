@@ -18,6 +18,7 @@ import { LoadingAnimationModule } from '@shared/components/loadings/loading-anim
 import { LoadingCommentsModule } from '@shared/components/loadings/loading-comments/loading-comments.module';
 import { LoadingImageModule } from '@shared/components/loadings/loading-image/loading-image.module';
 import { PublishDatePipeModule } from '@shared/pipes/publish-date/publish-date.module';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { PublishDatePipeModule } from '@shared/pipes/publish-date/publish-date.m
     LoadingAnimationModule,
     LoadingCommentsModule,
     LoadingImageModule,
-    PublishDatePipeModule
+    PublishDatePipeModule,
+    InfiniteScrollModule
   ],
   declarations: [
     FeedComponent,

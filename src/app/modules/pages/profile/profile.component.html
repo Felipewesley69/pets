@@ -1,15 +1,17 @@
 <div class="container-sm">
   <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div
+      class="col-md-6"
+      class="col-md-6 col-card-feed search-results"
+      infiniteScroll
+      [infiniteScrollDistance]="1"
+      [infiniteScrollThrottle]="1000"
+      (scrolled)="loadPlus()"
+    >
       <app-card-user-profile></app-card-user-profile>
       <app-content-feed [data]="posts" [load]="load"></app-content-feed>
-      <div class="col-md-12 text-center mt-3 mb-3">
-        <app-secondary-button label="Carregar mais..." (func)="loadPlus()"></app-secondary-button>
-      </div>
     </div>
     <div class="col-md-3"></div>
   </div>
 </div>
-
-

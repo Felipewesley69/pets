@@ -1,4 +1,4 @@
-<ng-container *ngIf="!load.load; else loading">
+<ng-container *ngIf="!loading_1.load; else loading">
   <div class="card" *ngFor="let item of data">
     <div class="card-title">
       <app-option-delete *ngIf="owner(item.owner.id)" (func)="deletePost(item.id)"></app-option-delete>
@@ -29,6 +29,7 @@
       </div>
     </div>
   </div>
+  <app-spinner *ngIf="!loading_2.load"></app-spinner>
 </ng-container>
 
 <app-modal-post #modal></app-modal-post>

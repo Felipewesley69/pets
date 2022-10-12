@@ -16,8 +16,8 @@ export class ProfileComponent implements OnInit {
   page: number = 0;
   limit: number = 10;
   posts: Post[] = [];
-  load = new Loading();
-  loadingPlus = new Loading();
+  loading_1 = new Loading();
+  loading_2 = new Loading();
 
   constructor(
     private postsService: PostsService,
@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
     this.routerActivated.params.subscribe(res => {
       if (Boolean(res.userId)) {
         this.page = 0;
-        this.postsService.loadByIdUser(res.userId, { limit: this.limit, page: this.page }, this.load)
+        this.postsService.loadByIdUser(res.userId, { limit: this.limit, page: this.page }, this.loading_1)
           .subscribe(res => {
             this.posts = [];
             this.posts.push(...res.data);
@@ -44,12 +44,12 @@ export class ProfileComponent implements OnInit {
   }
 
   loadPosts(): void {
-    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.load)
+    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.loading_1)
       .subscribe(res => this.posts.push(...res.data));
   }
 
   loadPlusPosts(): void {
-    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.loadingPlus)
+    this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.loading_2)
       .subscribe(res => this.posts.push(...res.data));
   }
 

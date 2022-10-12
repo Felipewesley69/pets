@@ -13,7 +13,6 @@ export class AppComponent {
 
   title = 'pets';
   load: boolean = true;
-  classLoader: string = '';
   showLoader$: Observable<boolean>;
 
   constructor(

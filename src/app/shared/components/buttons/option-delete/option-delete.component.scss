@@ -1,10 +1,17 @@
+@use '../../../../theme/base/variables';
+
 .options {
   position: absolute;
   top: 15px;
   right: 15px;
+  transition: .2s;
+
+  &:hover {
+    color: variables.$primary-color;
+  }
 
   .dropdown-menu-right {
     height: auto !important;
-    margin-right: 0 !important;
+    width: auto !important;
   }
 }

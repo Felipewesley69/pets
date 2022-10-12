@@ -1,0 +1,14 @@
+@use '../../../../theme/base/variables';
+
+.spinner-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;
+
+  .spinner-grow {
+    color: variables.$primary-color;
+  }
+  
+}

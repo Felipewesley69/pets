@@ -14,7 +14,8 @@ import { Loading } from '@shared/models/loading.model';
 export class ContentFeedComponent implements OnInit {
 
   @Input() data: Post[];
-  @Input() load: Loading;
+  @Input() loading_1: Loading;
+  @Input() loading_2: Loading;
 
   @ViewChild('modal') m: ModalPostComponent;
 

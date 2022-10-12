@@ -6,15 +6,15 @@
     <div
       class="col-md-6 col-card-feed search-results"
       infiniteScroll
-      [infiniteScrollDistance]="1"
-      [infiniteScrollThrottle]="1000"
-      [scrollWindow]="windowWidth"
+      [infiniteScrollDistance]="0"
+      [infiniteScrollThrottle]="3000"
+      [scrollWindow]="true"
       (scrolled)="loadPlus()"  
       (scrolledUp)="loadPosts()"  
     >
       <app-new-post></app-new-post>
-      <app-content-feed [data]="posts" [load]="loading"></app-content-feed>
-      
+      <app-content-feed [data]="posts" [loading_1]="loading_1" [loading_2]="loading_2"></app-content-feed>
+      <app-scroll-to-top></app-scroll-to-top>
     </div>
     <div class="col-md-3 col-request">
       <app-requests></app-requests>

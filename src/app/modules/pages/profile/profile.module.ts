@@ -7,6 +7,7 @@ import { ButtonsModule } from '@shared/components/buttons/buttons.module';
 import { FeedModule } from 'app/modules/feed/feed.module';
 import { PostsService } from 'app/modules/feed/providers/posts.service';
 import { CardUserProfileModule } from '@shared/components/card-user-profile/card-user-profile.module';
+import { ScrollToTopModule } from '@shared/components/scroll-to-top/scroll-to-top.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { CardUserProfileModule } from '@shared/components/card-user-profile/card
     CardUserProfileModule,
     ButtonsModule,
     FeedModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    ScrollToTopModule
   ],
   declarations: [ProfileComponent],
   providers: [

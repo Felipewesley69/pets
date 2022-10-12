@@ -11,6 +11,7 @@
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
   background-color: variables.$background-body;
 }
 
@@ -28,6 +29,12 @@ body {
   background-color: variables.$primary-color;
   border-radius: 20px;
   border: 1px solid variables.$light-gray;
+}
+
+.dropdown-item:hover {
+  transition: .3s;
+  background-color: variables.$light-color;
+  color: variables.$primary-color;
 }
 
 a {
@@ -73,7 +80,7 @@ ul > li {
 }
 
 .ng-invalid.ng-touched {
-  border-color: variables.$form-invalid;;
+  border-color: variables.$form-invalid;
 }
 
 @keyframes fadein {

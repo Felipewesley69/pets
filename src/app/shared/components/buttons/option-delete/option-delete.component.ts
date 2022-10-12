@@ -7,8 +7,7 @@ import Swal from 'sweetalert2';
               <div class="btn-group options" dropdown>
                 <i id="button-animated" type="button" dropdownToggle class="fas fa-ellipsis-v"
                  aria-controls="dropdown-animated"></i>
-                 <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right"
-                    style="width: 252px; margin-right: 1rem;" role="menu" aria-labelledby="button-animated">
+                 <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="button-animated">
                     <li role="menuitem">
                       <a class="dropdown-item" (click)="acao()">Excluir</a>
                     </li>

@@ -1,0 +1,31 @@
+@use "../../../theme/base/variables";
+
+.scroll {
+  position: fixed;
+  bottom: 30px;
+  right: 35px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: variables.$primary-color;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: variables.$light-color;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(110%);
+  }
+}
+
+@media (max-width: 991px) {
+  .scroll {
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+}

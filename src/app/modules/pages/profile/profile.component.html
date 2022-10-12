@@ -5,13 +5,15 @@
       class="col-md-6"
       class="col-md-6 col-card-feed search-results"
       infiniteScroll
-      [infiniteScrollDistance]="1"
-      [infiniteScrollThrottle]="1000"
+      [infiniteScrollDistance]="0"
+      [infiniteScrollThrottle]="3000"
       (scrolled)="loadPlus()"
     >
       <app-card-user-profile></app-card-user-profile>
-      <app-content-feed [data]="posts" [load]="load"></app-content-feed>
+      <app-content-feed [data]="posts" [loading_1]="loading_1" [loading_2]="loading_2"></app-content-feed>
     </div>
     <div class="col-md-3"></div>
   </div>
 </div>
+
+<app-scroll-to-top></app-scroll-to-top>

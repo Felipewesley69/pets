@@ -10,18 +10,18 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
 
-  classMenu: string;
+  hideNav: boolean;
 
   constructor(private touter: Router, public userService: UserServiceService) {
   }
   
   ngOnInit(): void {
-    this.classMenu = window.innerWidth > 991 ? 'dropdown-menu-right' : 'dropdown-menu-left';
+    this.hideNav = window.innerWidth > 991;
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    this.classMenu = event.target.innerWidth > 991 ? 'dropdown-menu-right' : 'dropdown-menu-left';
+    this.hideNav = event.target.innerWidth > 991;
   }
 
   loguot(): void {

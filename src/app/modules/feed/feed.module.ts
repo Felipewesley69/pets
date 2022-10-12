@@ -20,6 +20,8 @@ import { LoadingImageModule } from '@shared/components/loadings/loading-image/lo
 import { PublishDatePipeModule } from '@shared/pipes/publish-date/publish-date.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { ImageService } from './providers/image.service';
+import { SpinnerModule } from '@shared/components/loadings/spinner/spinner.module';
+import { ScrollToTopModule } from '@shared/components/scroll-to-top/scroll-to-top.module';
 
 @NgModule({
   imports: [
@@ -36,7 +38,9 @@ import { ImageService } from './providers/image.service';
     LoadingCommentsModule,
     LoadingImageModule,
     PublishDatePipeModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    SpinnerModule,
+    ScrollToTopModule
   ],
   declarations: [
     FeedComponent,

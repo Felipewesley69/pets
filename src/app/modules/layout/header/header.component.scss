@@ -1,10 +1,9 @@
 @use "../../../theme/base/variables";
 
 .navbar {
-  position: fixed;
-  width: 100vw;
-  z-index: 500;
-
+  position: sticky;
+  top: 0;
+  z-index: 999;
   .fa-paw {
     color: variables.$primary-color;
   }

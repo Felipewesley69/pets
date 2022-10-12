@@ -14,7 +14,7 @@ import { Component, HostListener } from '@angular/core';
 export class ScrollToTopComponent {
 
   pageYOffset: number = null;
-  scrollHeight: number = 300;
+  scrollHeight: number = 1000;
 
   constructor() { }
 

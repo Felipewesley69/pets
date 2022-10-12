@@ -1,5 +1,7 @@
+@use '../../../theme/base/variables';
+
 .loading {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -7,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(22, 93, 126);
+  background-color: variables.$primary-color;
   z-index: 9999;
 }
 
@@ -18,13 +20,12 @@
 }
 
 .p-bars {
-  display: block;
-  height: 36px;
-  width: 16px;
+  display: flex;
   animation: scale 1600ms ease-in-out infinite;
   animation-delay: 100ms;
   transform-origin: 50% 50%;
-  background-color: #FFF;
+  color: variables.$light-color;
+  font-size: 4.5rem;
 }
 
 @keyframes scale {

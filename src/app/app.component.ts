@@ -29,7 +29,7 @@ export class AppComponent {
         event instanceof NavigationCancel ||
         event instanceof NavigationError
       ) {
-        setTimeout(() => this.load = false, 1000);
+        setTimeout(() => this.load = false, 1500);
         // this.load = false;
       }
     });

@@ -2,16 +2,9 @@
   display: none;
 }
 
-.col-card-feed {
-  position: relative;
-}
-
-@media (max-width: 768px) {
-  .col-request {
+@media (max-width: 991px) {
+  .col-request,
+  .col-card {
     display: none;
-  }
-
-  .col-card-feed {
-    height: auto !important;
   }
 }

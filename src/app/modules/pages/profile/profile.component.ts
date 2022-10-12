@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
     private postsService: PostsService,
     private routerActivated: ActivatedRoute
   ) {
+    document.documentElement.scrollTop = 0
+    
     this.routerActivated.params
       .pipe(finalize(() => this.loadPosts()))
       .subscribe(res => this.userId = res.userId);

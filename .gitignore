@@ -45,4 +45,4 @@ testem.log
 Thumbs.db
 
 # Token
-# /src/token.ts
+/src/token.ts

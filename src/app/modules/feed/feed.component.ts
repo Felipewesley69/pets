@@ -17,7 +17,9 @@ export class FeedComponent implements OnInit {
   loading_2 = new Loading();
   windowWidth: boolean = false;
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService) {
+    document.documentElement.scrollTop = 0
+  }
 
   ngOnInit() {
     this.loadPosts();

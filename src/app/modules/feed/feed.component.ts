@@ -17,11 +17,11 @@ export class FeedComponent implements OnInit {
   loading_2 = new Loading();
   windowWidth: boolean = false;
 
-  constructor(private postsService: PostsService) {
-    document.documentElement.scrollTop = 0
-  }
-
+  constructor(private postsService: PostsService) { }
+  
   ngOnInit() {
+    this.scrollTop();
+
     this.loadPosts();
 
     this.postsService.updatePosts.subscribe(() => {
@@ -30,6 +30,8 @@ export class FeedComponent implements OnInit {
       this.loadPosts();
     });
   }
+
+  scrollTop = () => document.documentElement.scrollTop = 0;
 
   // @HostListener('window:resize', ['$event'])
   // onResize(event) {

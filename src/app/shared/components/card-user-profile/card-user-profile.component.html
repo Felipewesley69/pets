@@ -3,7 +3,7 @@
     <div class="card-top">
       <div class="card-top-banner"></div>
       <div class="card-top-img">
-        <i class="fas fa-camera" title="Alterar foto"></i>
+        <i class="fas fa-camera" title="Alterar foto" *ngIf="owner()"></i>
         <img [src]="user?.picture" alt="Picture">
       </div>
       <div class="card-top-dados">

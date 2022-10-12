@@ -16,13 +16,15 @@ export class HeaderComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    this.hideNav = window.innerWidth > 991;
+    this.scrollTop();
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.hideNav = event.target.innerWidth > 991;
   }
+
+  scrollTop = () => this.hideNav = window.innerWidth > 991;
 
   loguot(): void {
     Swal.fire({

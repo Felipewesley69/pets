@@ -23,8 +23,6 @@ export class ProfileComponent implements OnInit {
     private postsService: PostsService,
     private routerActivated: ActivatedRoute
   ) {
-    document.documentElement.scrollTop = 0
-    
     this.routerActivated.params
       .pipe(finalize(() => this.loadPosts()))
       .subscribe(res => this.userId = res.userId);
@@ -32,6 +30,8 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.routerActivated.params.subscribe(res => {
+      this.scrollTop();
+      
       if (Boolean(res.userId)) {
         this.page = 0;
         this.postsService.loadByIdUser(res.userId, { limit: this.limit, page: this.page }, this.loading_1)
@@ -44,6 +44,8 @@ export class ProfileComponent implements OnInit {
       }
     });
   }
+
+  scrollTop = () => document.documentElement.scrollTop = 0;
 
   loadPosts(): void {
     this.postsService.loadByIdUser(this.userId, { limit: this.limit, page: this.page }, this.loading_1)

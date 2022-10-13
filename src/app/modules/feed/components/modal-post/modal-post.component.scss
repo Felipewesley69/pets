@@ -1,7 +1,12 @@
 @use '../../../../theme/base/variables';
 
-.container-modal {
-  min-height: 400px;
+.modal-body {
+  min-height: 548px;
+}
+
+.legend {
+  overflow-y: auto;
+  max-height: 100px;
 }
 
 .title-post-text {

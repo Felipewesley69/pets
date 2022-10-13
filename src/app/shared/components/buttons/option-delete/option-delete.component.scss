@@ -1,17 +1,27 @@
-@use '../../../../theme/base/variables';
+@use "../../../../theme/base/variables";
 
 .options {
   position: absolute;
   top: 15px;
   right: 15px;
-  transition: .2s;
+  transition: 0.2s;
 
-  &:hover {
-    color: variables.$primary-color;
+  i {
+    padding: 0 8px;
+
+    &:hover {
+      color: variables.$primary-color;
+    }
   }
 
-  .dropdown-menu-right {
-    height: auto !important;
-    width: auto !important;
+  .dropdown-menu {
+    position: absolute;
+    margin-right: 1.2rem;
+    margin-top: -1.2rem;
+    padding: 0;
+
+    .dropdown-item {
+      padding: 5px 10px;
+    }
   }
 }

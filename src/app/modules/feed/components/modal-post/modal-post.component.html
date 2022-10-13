@@ -22,8 +22,8 @@
               <ng-container *ngIf="!loadPost.load; else loadingPost">
                 <div class="container-image" *ngIf="post?.image" style="background: url({{post?.image}});">
                 </div>
-                <div class="row">
-                  <div class="col-md-12 pt-3 pb-2">
+                <div class="row" *ngIf="post?.text">
+                  <div class="col-md-12 pt-3 pb-2 legend">
                     {{ post?.text }}
                   </div>
                 </div>

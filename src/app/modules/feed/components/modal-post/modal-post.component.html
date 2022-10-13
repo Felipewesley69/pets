@@ -4,11 +4,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="title-post">
-          <img class="img-tumblr" [src]="urlPicture">
+          <img class="img-tumblr" [src]="currentPost?.owner?.picture">
           <div class="title-post-text">
-            <h4>{{ post?.owner.firstName }} {{ post?.owner.lastName }}</h4>
+            <h4>{{ currentPost?.owner.firstName }} {{ currentPost?.owner.lastName }}</h4>
             <i class="fas fa-circle"></i>
-            <span>{{ post?.publishDate | publishDate }}</span>
+            <span>{{ currentPost?.publishDate | publishDate }}</span>
           </div>
         </div>
         <button type="button" class="close-modal" aria-label="Close" (click)="close()">
@@ -54,6 +54,11 @@
                 </ul>
               </ng-container>
             </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="pull-right">
+            <app-secondary-button label="Fechar" (func)="close()"></app-secondary-button>
           </div>
         </div>
       </div>

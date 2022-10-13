@@ -1,0 +1,19 @@
+@use './../base/variables';
+
+.modal {
+  .modal-dialog {
+    .modal-content {
+      .modal-header {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: variables.$dark-color;
+        padding: 10px 12px;
+      }
+
+      .modal-footer {
+        padding: 5px 12px;
+        background-color: variables.$footer-modal;
+      }
+    }
+  }
+}

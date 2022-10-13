@@ -1,15 +1,19 @@
 @use '../../../../theme/base/variables';
 
 .button {
-  border: none;
+  border: 1px solid variables.$light-gray;
+  border: 1px solid variables.$light-gray;
   color: variables.$dark-color;
   padding: 3px 20px;
   border-radius: 25px;
   background-color: transparent;
   font-weight: 600;
   transition: .4s;
-
+  padding: 3px 30px;
+  
   &:hover {
-    text-decoration: underline;
+    border: 1px solid variables.$primary-color;
+    color: variables.$primary-color;
+
   }
 }

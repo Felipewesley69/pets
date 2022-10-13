@@ -21,7 +21,7 @@ export class ModalPostComponent implements OnInit {
 
   message = new FormControl(null);
 
-  urlPicture: string;
+  currentPost: Post;
   post: Post;
   page: number = 0;
   comments: Comments;
@@ -41,7 +41,7 @@ export class ModalPostComponent implements OnInit {
 
   open(post: Post) {
     this.loadPostById(post.id);
-    this.urlPicture = post.owner.picture;
+    this.currentPost = post;
     this.loadComments.load = true;
     this.modal.show();
   }
